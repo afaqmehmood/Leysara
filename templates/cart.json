@@ -12,17 +12,36 @@
     "cart-items": {
       "type": "main-cart-items",
       "settings": {
-        "section_heading_size": "h1",
-        "cart_drawer_empty_subtitle": "Je winkelwagen is misschien nog leeg, maar wij helpen je graag om hem te vullen met geweldige producten.",
-        "show_cart_note": false,
-        "button_style": "secondary",
-        "button_dot": false,
-        "margin_top": "no-indent",
-        "margin_bottom": "no-indent"
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 24
+      }
+    },
+    "cart-footer": {
+      "type": "main-cart-footer",
+      "blocks": {
+        "subtotal": {
+          "type": "subtotal",
+          "settings": {}
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "subtotal",
+        "buttons"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding_top": 20,
+        "padding_bottom": 40
       }
     }
   },
   "order": [
-    "cart-items"
+    "cart-items",
+    "cart-footer"
   ]
 }

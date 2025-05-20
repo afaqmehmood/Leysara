@@ -9,24 +9,20 @@
  */
 {
   "sections": {
-    "main-blog": {
+    "main": {
       "type": "main-blog",
       "settings": {
-        "margin_top": "no-indent",
-        "margin_bottom": "xl"
-      }
-    },
-    "newsletter": {
-      "type": "newsletter",
-      "settings": {
-        "color_scheme": "background-1",
-        "margin_top": "m",
-        "margin_bottom": "m"
+        "layout": "grid",
+        "show_image": true,
+        "image_height": "medium",
+        "show_date": true,
+        "show_author": false,
+        "padding_top": 52,
+        "padding_bottom": 100
       }
     }
   },
   "order": [
-    "main-blog",
-    "newsletter"
+    "main"
   ]
 }

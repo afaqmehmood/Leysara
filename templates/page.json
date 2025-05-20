@@ -12,8 +12,8 @@
     "main": {
       "type": "main-page",
       "settings": {
-        "margin_top": "no-indent",
-        "margin_bottom": "m"
+        "padding_top": 52,
+        "padding_bottom": 100
       }
     }
   },

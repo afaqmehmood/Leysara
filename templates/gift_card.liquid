@@ -3,310 +3,211 @@
 <!doctype html>
 <html lang="{{ request.locale.iso_code }}">
   <head>
+    <script src="{{ 'vendor/qrcode.js' | shopify_asset_url }}" defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="theme-color" content="">
+    <meta name="theme-color" content="{{ settings.color_background }}">
     <link rel="canonical" href="{{ canonical_url }}">
-    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
-    <script src="{{ 'vendor/qrcode.js' | shopify_asset_url }}" defer></script>
 
     {%- if settings.favicon != blank -%}
-      <link
-        rel="icon"
-        type="image/png"
-        href="{{ settings.favicon | img_url: '32x32' }}"
-      >
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
 
     {%- unless settings.type_header_font.system? -%}
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
-    <title>{{ page_title }}</title>
+    {%- assign formatted_balance = gift_card.balance | money_without_trailing_zeros | strip_html -%}
 
-    {% if page_description %}
-      <meta name="description" content="{{ page_description | escape }}">
-    {% endif %}
+    <title>{{ 'gift_cards.issued.title' | t: value: formatted_balance, shop: shop.name }}</title>
 
-    {% render 'meta-tags' %}
-
-    <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+    <meta name="description" content="{{ 'gift_cards.issued.subtext' | t }}">
 
     {{ content_for_header }}
 
     {%- liquid
-      assign body_font_ligh = settings.type_body_font | font_modify: 'weight', '300'
-      assign body_font_regular = settings.type_body_font | font_modify: 'weight', '400'
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
       assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
       assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
-      assign heading_font_italic = settings.type_header_font | font_modify: 'style', 'italic'
     %}
-    {{ 'base.css' | asset_url | stylesheet_tag }}
+
     {% style %}
       {{ settings.type_body_font | font_face: font_display: 'swap' }}
-      {{ settings.type_header_font | font_face: font_display: 'swap' }}
-      {{ settings.type_header_font | font_face: font_display: 'swap' }}
-      {{ settings.type_button_font | font_face: font_display: 'swap' }}
-      {{ settings.type_header_font_card | font_face: font_display: 'swap' }}
-      {{ body_font_ligh | font_face: font_display: 'swap' }}
-      {{ body_font_regular | font_face: font_display: 'swap' }}
-      {{ body_font_medium | font_face: font_display: 'swap' }}
       {{ body_font_bold | font_face: font_display: 'swap' }}
       {{ body_font_italic | font_face: font_display: 'swap' }}
-      {{ heading_font_italic | font_face: font_display: 'swap' }}
       {{ body_font_bold_italic | font_face: font_display: 'swap' }}
+      {{ settings.type_header_font | font_face: font_display: 'swap' }}
 
-      {% for scheme in settings.color_schemes -%}
-          {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
-          {% if forloop.index == 1 -%}
-            :root,
-          {%- endif %}
-          .color-{{ scheme.id }} {
-            --color-background: {{ scheme.settings.colors_background_1.red }},{{ scheme.settings.colors_background_1.green }},{{ scheme.settings.colors_background_1.blue }};
-            --color-background-secondary: {{ scheme.settings.colors_background_2.red }},{{ scheme.settings.colors_background_2.green }},{{ scheme.settings.colors_background_2.blue }};
-            {% if scheme.settings.background_gradient != empty %}
-              --gradient-background: {{ scheme.settings.background_gradient }};
-            {% else %}
-              --gradient-background: {{ scheme.settings.colors_background_1 }};
-            {% endif %}
-            --color-foreground: {{ scheme.settings.colors_text.red }}, {{ scheme.settings.colors_text.green }}, {{ scheme.settings.colors_text.blue }};
-            --color-foreground-secondary: {{ scheme.settings.colors_secondary_text.red }}, {{ scheme.settings.colors_secondary_text.green }}, {{ scheme.settings.colors_secondary_text.blue }};
-            --color-foreground-tertiary: {{ scheme.settings.colors_tertiary_text.red }}, {{ scheme.settings.colors_tertiary_text.green }}, {{ scheme.settings.colors_tertiary_text.blue }};
-            --color-foreground-title: {{ scheme.settings.colors_text_title.red }}, {{ scheme.settings.colors_text_title.green }}, {{ scheme.settings.colors_text_title.blue }};
+      :root {
+        --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+        --font-body-style: {{ settings.type_body_font.style }};
+        --font-body-weight: {{ settings.type_body_font.weight }};
 
-            --color-button-text: {{ scheme.settings.colors_solid_button_labels.red }}, {{ scheme.settings.colors_solid_button_labels.green }}, {{ scheme.settings.colors_solid_button_labels.blue }};
-            --color-button-text-hover: {{ scheme.settings.colors_solid_button_labels_hover.red }}, {{ scheme.settings.colors_solid_button_labels_hover.green }}, {{ scheme.settings.colors_solid_button_labels_hover.blue }};
-            --color-button: {{ scheme.settings.colors_solid_button_background.red }}, {{ scheme.settings.colors_solid_button_background.green }}, {{ scheme.settings.colors_solid_button_background.blue }};
-            --color-button-hover: {{ scheme.settings.colors_solid_button_background_hover.red }}, {{ scheme.settings.colors_solid_button_background_hover.green }}, {{ scheme.settings.colors_solid_button_background_hover.blue }};
+        --font-heading-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
+        --font-heading-style: {{ settings.type_header_font.style }};
+        --font-heading-weight: {{ settings.type_header_font.weight }};
 
-            --color-button-secondary-text: {{ scheme.settings.colors_secondary_button_labels.red }}, {{ scheme.settings.colors_secondary_button_labels.green }}, {{ scheme.settings.colors_secondary_button_labels.blue }};
-            --color-button-secondary-text-hover: {{ scheme.settings.colors_secondary_button_labels_hover.red }}, {{ scheme.settings.colors_secondary_button_labels_hover.green }}, {{ scheme.settings.colors_secondary_button_labels_hover.blue }};
+        --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
+        --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
 
-            --color-button-tertiary-text: {{ scheme.settings.colors_tertiary_button_labels.red }}, {{ scheme.settings.colors_tertiary_button_labels.green }}, {{ scheme.settings.colors_tertiary_button_labels.blue }};
-            --color-button-tertiary-text-hover: {{ scheme.settings.colors_tertiary_button_labels_hover.red }}, {{ scheme.settings.colors_tertiary_button_labels_hover.green }}, {{ scheme.settings.colors_tertiary_button_labels_hover.blue }};
-            --color-button-tertiary: {{ scheme.settings.colors_tertiary_button_background.red }}, {{ scheme.settings.colors_tertiary_button_background.green }}, {{ scheme.settings.colors_tertiary_button_background.blue }};
-            --color-button-tertiary-hover: {{ scheme.settings.colors_tertiary_button_background_hover.red }}, {{ scheme.settings.colors_tertiary_button_background_hover.green }}, {{ scheme.settings.colors_tertiary_button_background_hover.blue }};
+        {% assign scheme = settings.color_schemes | first %}
+        --color-background: {{ scheme.settings.background.red }},{{ scheme.settings.background.green }},{{ scheme.settings.background.blue }};
+        {% if scheme.settings.background_gradient != empty -%}
+          --gradient-background: {{ scheme.settings.background_gradient }};
+        {%- else -%}
+          --gradient-background: {{ scheme.settings.background }};
+        {%- endif %}
+        --color-foreground: {{ scheme.settings.text.red }},{{ scheme.settings.text.green }},{{ scheme.settings.text.blue }};
+        --color-button: {{ scheme.settings.button.red }},{{ scheme.settings.button.green }},{{ scheme.settings.button.blue }};
+        --color-button-label: {{ scheme.settings.button_label.red }},{{ scheme.settings.button_label.green }},{{ scheme.settings.button_label.blue }};
+        --color-secondary-button-label: {{ scheme.settings.secondary_button_label.red }},{{ scheme.settings.secondary_button_label.green }},{{ scheme.settings.secondary_button_label.blue }};
+        --color-shadow: {{ scheme.settings.shadow.red }},{{ scheme.settings.shadow.green }},{{ scheme.settings.shadow.blue }};
 
-						--colors_marker_background: {{ scheme.settings.colors_marker_background.red }}, {{	scheme.settings.colors_marker_background.green }}, {{ scheme.settings.colors_marker_background.blue }};
-            --color-accent: {{ scheme.settings.colors_accent.red }}, {{ scheme.settings.colors_accent.green }}, {{ scheme.settings.colors_accent.blue }};
+        {% assign badge_scheme_id = settings.sold_out_badge_color_scheme | append: '' %}
+        {% assign badge_scheme = settings.color_schemes[badge_scheme_id] %}
+        --color-soldout-badge: {{ badge_scheme.settings.background.red }},{{ badge_scheme.settings.background.green }},{{ badge_scheme.settings.background.blue }};
+        --color-soldout-badge-label: {{ badge_scheme.settings.text.red }},{{ badge_scheme.settings.text.green }},{{ badge_scheme.settings.text.blue }};
 
-            --color-overlay: {{ scheme.settings.colors_background_overlay.red }}, {{ scheme.settings.colors_background_overlay.green }}, {{ scheme.settings.colors_background_overlay.blue }};
-            --color-border-input: {{ scheme.settings.colors_input_border.red }}, {{ scheme.settings.colors_input_border.green }}, {{ scheme.settings.colors_input_border.blue }};
-            --color-border-input-hover: {{ scheme.settings.colors_input_hover_border.red }}, {{ scheme.settings.colors_input_hover_border.green }}, {{ scheme.settings.colors_input_hover_border.blue }};
-            --color-background-input: {{ scheme.settings.colors_input_background.red }}, {{ scheme.settings.colors_input_background.green }}, {{ scheme.settings.colors_input_background.blue }};
-            --color-background-input-hover: {{ scheme.settings.colors_input_hover_background.red }}, {{ scheme.settings.colors_input_hover_background.green }}, {{ scheme.settings.colors_input_hover_background.blue }};
-            --color-border: {{ scheme.settings.color_border.red }}, {{ scheme.settings.color_border.green }}, {{ scheme.settings.color_border.blue }};
+        --page-width: {{ settings.page_width | divided_by: 10 }}rem;
+        --page-width-margin: {% if settings.page_width == '1600' %}2{% else %}0{% endif %}rem;
 
-            --color-badge-sale-background: {{ scheme.settings.badge_sale_background_color.red }}, {{ scheme.settings.badge_sale_background_color.green }}, {{ scheme.settings.badge_sale_background_color.blue }};
-            --color-badge-sale-text: {{ scheme.settings.badge_custom_text_color.red }}, {{ scheme.settings.badge_custom_text_color.green }}, {{ scheme.settings.badge_custom_text_color.blue }};
-            --color-badge-soldout-background: {{ scheme.settings.badge_soldout_background_color.red }}, {{ scheme.settings.badge_soldout_background_color.green }}, {{ scheme.settings.badge_soldout_background_color.blue }};
-            --color-badge-soldout-text: {{ scheme.settings.badge_soldout_text_color.red }}, {{ scheme.settings.badge_soldout_text_color.green }}, {{ scheme.settings.badge_soldout_text_color.blue }};
-            --color-badge-custom-background: {{ scheme.settings.badge_custom_background_color.red }}, {{ scheme.settings.badge_custom_background_color.green }}, {{ scheme.settings.badge_custom_background_color.blue }};
-            --color-badge-custom-text: {{ scheme.settings.badge_sale_text_color.red }}, {{ scheme.settings.badge_sale_text_color.green }}, {{ scheme.settings.badge_sale_text_color.blue }};
-            --color-background-card: {{ scheme.settings.background_card.red }}, {{ scheme.settings.background_card.green }}, {{ scheme.settings.background_card.blue }};
-          }
-      {% endfor %}
+        --buttons-radius: {{ settings.buttons_radius }}px;
+        --buttons-border-width: {% if settings.buttons_border_opacity > 0 %}{{ settings.buttons_border_thickness }}{% else %}0{% endif %}px;
+        --buttons-border-opacity: {{ settings.buttons_border_opacity | divided_by: 100.0 }};
+        --buttons-shadow-opacity: {{ settings.buttons_shadow_opacity | divided_by: 100.0 }};
+        --buttons-shadow-horizontal-offset: {{ settings.buttons_shadow_horizontal_offset }}px;
+        --buttons-shadow-vertical-offset: {{ settings.buttons_shadow_vertical_offset }}px;
+        --buttons-shadow-blur-radius: {{ settings.buttons_shadow_blur }}px;
+        --buttons-border-offset: {% if settings.buttons_radius > 0 or settings.buttons_shadow_opacity > 0 %}0.3{% else %}0{% endif %}px;
 
-      {{ scheme_classes | prepend: 'body' }} {
-        color: rgba(var(--color-foreground));
-        background-color: rgb(var(--color-background));
+        --inputs-radius: {{ settings.inputs_radius }}px;
+        --inputs-border-width: {{ settings.inputs_border_thickness }}px;
+        --inputs-border-opacity: {{ settings.inputs_border_opacity | divided_by: 100.0 }};
+        --inputs-shadow-opacity: {{ settings.inputs_shadow_opacity | divided_by: 100.0 }};
+        --inputs-shadow-horizontal-offset: {{ settings.inputs_shadow_horizontal_offset }}px;
+        --inputs-shadow-vertical-offset: {{ settings.inputs_shadow_vertical_offset }}px;
+        --inputs-shadow-blur-radius: {{ settings.inputs_shadow_blur }}px;
       }
-
-         :root {
-           --announcement-height: 0px;
-           --header-height: 0px;
-           --breadcrumbs-height: 0px;
-
-           --spaced-section: 5rem;
-
-           --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
-           --font-body-style: {{ settings.type_body_font.style }};
-           --font-body-weight: {{ settings.type_body_font.weight }};
-
-           --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
-           --font-body-line-height: {{ settings.type_body_line_height }};
-           --font-body-letter-spacing: {{ settings.type_body_letter_spacing }}em;
-
-           --font-heading-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
-           --font-heading-style: {{ settings.type_header_font.style }};
-           --font-heading-weight: {{ settings.type_header_font.weight }};
-           --font-heading-letter-spacing: {{ settings.type_header_letter_spacing }}em;
-           --font-heading-line-height: {{ settings.type_header_line_height }};
-           --font-heading-text-transform: {{ settings.type_header_text_transform }};
-
-           --font-subtitle-family: {{ settings.type_subtitle_font.family }}, {{ settings.type_subtitle_font.fallback_families }};
-           --font-subtitle-style: {{ settings.type_subtitle_font.style }};
-           --font-subtitle-weight: {{ settings.type_subtitle_font.weight }};
-           --font-subtitle-text-transform: {{ settings.subtitle_text_transform }};
-           --font-subtitle-scale: {{ settings.subtitle_scale | divided_by: 100.0 }};
-
-           --font-heading-h1-scale: {{ settings.heading_h1_scale | divided_by: 100.0 }};
-           --font-heading-h2-scale: {{ settings.heading_h2_scale | divided_by: 100.0 }};
-           --font-heading-h3-scale: {{ settings.heading_h3_scale | divided_by: 100.0 }};
-           --font-heading-h4-scale: {{ settings.heading_h4_scale | divided_by: 100.0 }};
-           --font-heading-h5-scale: {{ settings.heading_h5_scale | divided_by: 100.0 }};
-
-           --font-heading-card-family: {{ settings.type_header_font_card.family }}, {{ settings.type_header_font_card.fallback_families }};
-           --font-heading-card-style: {{ settings.type_header_font_card.style }};
-           --font-heading-card-weight: {{ settings.type_header_font_card.weight }};
-           --font-text-card-family: {{ settings.type_text_font_card.family }}, {{ settings.type_text_font_card.fallback_families }};
-           --font-text-card-style: {{ settings.type_text_font_card.style }};
-           --font-text-card-weight: {{ settings.type_text_font_card.weight }};
-
-           --font-heading-card-scale: {{ settings.heading_scale_card | divided_by: 100.0 }};
-           --font-text-card-scale: {{ settings.text_scale_card | divided_by: 100.0 }};
-
-           --font-button-family: {{ settings.type_button_font.family }}, {{ settings.type_button_font.fallback_families }};
-           --font-button-style: {{ settings.type_button_font.style }};
-           --font-button-weight: {{ settings.type_button_font.weight }};
-           --font-button-text-transform: {{ settings.button_text_transform }};
-
-           --font-button-family: {{ settings.type_button_font.family }}, {{ settings.type_button_font.fallback_families }};
-           --font-button-style: {{ settings.type_button_font.style }};
-           --font-button-weight: {{ settings.type_button_font.weight }};
-           --font-button-text-transform: {{ settings.button_text_transform }};
-           --font-button-letter-spacing: 0;
-           --font-subtitle-letter-spacing: 0;
-
-           --font-header-menu-family: {{ settings.type_header_menu_font.family }}, {{ settings.type_header_menu_font.fallback_families }};
-           --font-header-menu-style: {{ settings.type_header_menu_font.style }};
-           --font-header-menu-weight: {{ settings.type_header_menu_font.weight }};
-           --font-header-menu-text-transform: {{ settings.header_menu_text_transform }};
-
-           --font-footer-menu-family: {{ settings.type_footer_menu_font.family }}, {{ settings.type_footer_menu_font.fallback_families }};
-           --font-footer-menu-style: {{ settings.type_footer_menu_font.style }};
-           --font-footer-menu-weight: {{ settings.type_footer_menu_font.weight }};
-           --font-footer-link-size: {{ settings.link_size_footer }}px;
-           --font-footer-bottom-link-size: {{ settings.link_size_footer_bottom }}px;
-
-           --font-popus-heading-family: {{ settings.type_popus_heading_font.family }}, {{ settings.type_popus_heading_font.fallback_families }};
-           --font-popus-heading-style: {{ settings.type_popus_heading_font.style }};
-           --font-popus-heading-weight: {{ settings.type_popus_heading_font.weight }};
-           --font-popus-text-family: {{ settings.type_popus_text_font.family }}, {{ settings.type_popus_text_font.fallback_families }};
-           --font-popus-text-style: {{ settings.type_popus_text_font.style }};
-           --font-popus-text-weight: {{ settings.type_popus_text_font.weight }};
-           --font-popup-heading-size: {{ settings.popup_heading_size }}px;
-           --font-popup-text-size: {{ settings.popup_text_size }}px;
-           --font-notification-heading-size: {{ settings.notification_heading_size }}px;
-           --font-notification-text-size: {{ settings.notification_text_size }}px;
-
-           --border-radius-button: {{ settings.button_border_radius }}px;
-
-           --payment-terms-background-color: {{ settings.colors_background_1 }};
-         }
-
-         @media screen and (min-width: 990px) {
-           :root {
-             --spaced-section: 16rem;
-           }
-         }
-
-         *,
-         *::before,
-         *::after {
-           box-sizing: inherit;
-         }
-
-         html {
-           box-sizing: border-box;
-           font-size: 10px;
-           height: 100%;
-         }
-
-         body {
-           position: relative;
-           display: flex;
-           flex-direction: column;
-           min-height: 100%;
-           margin: 0;
-           font-size: calc(var(--font-body-scale) * 1rem -0.2rem);
-           line-height: 1.4;
-           font-family: var(--font-body-family);
-           font-style: var(--font-body-style);
-           font-weight: var(--font-body-weight);
-           letter-spacing: calc(var(--font-body-letter-spacing) * 0.1);
-           overflow-x: hidden;
-         }
-
-        @media screen and (min-width: 750px) {
-          body {
-            font-size: calc(var(--font-body-scale) * 1rem - 0.1rem);
-          }
-        }
-
-        @media screen and (min-width: 1360px) {
-          body {
-            font-size: calc(var(--font-body-scale) * 1rem);
-          }
-        }
-
-        #MainContent {
-          flex-grow: 1;
-        }
     {% endstyle %}
 
     {%- unless settings.type_body_font.system? -%}
-      <link
-        rel="preload"
-        as="font"
-        href="{{ settings.type_body_font | font_url }}"
-        type="font/woff2"
-        crossorigin
-      >
+      {% comment %}theme-check-disable AssetPreload{% endcomment %}
+      <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
+      {% comment %}theme-check-enable AssetPreload{% endcomment %}
     {%- endunless -%}
     {%- unless settings.type_header_font.system? -%}
-      <link
-        rel="preload"
-        as="font"
-        href="{{ settings.type_header_font | font_url }}"
-        type="font/woff2"
-        crossorigin
-      >
+      {% comment %}theme-check-disable AssetPreload{% endcomment %}
+      <link rel="preload" as="font" href="{{ settings.type_header_font | font_url }}" type="font/woff2" crossorigin>
+      {% comment %}theme-check-enable AssetPreload{% endcomment %}
     {%- endunless -%}
+
+    {{ 'template-giftcard.css' | asset_url | stylesheet_tag }}
   </head>
 
-  <body>
-    <main class="main" id="MainContent">
-      {% section 'gift-card' %}
+  <body class="gradient gift-card">
+    <header>
+      <div class="gift-card__price">
+        <h1>
+          {% if settings.currency_code_enabled %}
+            {{ gift_card.balance | money_with_currency }}
+          {% else %}
+            {{ gift_card.balance | money }}
+          {% endif %}
+        </h1>
+        {%- if gift_card.enabled == false or gift_card.expired -%}
+          <p class="badge badge--expired">{{ 'gift_cards.issued.expired' | t }}</p>
+        {%- endif -%}
+      </div>
+      {% if gift_card.expires_on %}
+        {%- assign gift_card_expiration_date = gift_card.expires_on | date: '%B %e, %Y' -%}
+        <p class="gift-card__text">
+          {{ 'gift_cards.issued.expiration_date' | t: expires_on: gift_card_expiration_date }}
+        </p>
+      {% endif %}
+    </header>
+
+    <main>
+      <div class="gift-card__image-wrapper">
+        {%- if settings.logo != blank -%}
+          {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
+          {{ settings.logo | image_url: width: 570 | image_tag: class: 'gift-card__image', alt: logo_alt }}
+        {%- else %}
+          <img
+            class="gift-card__image"
+            src="{{ 'gift-card/card.svg' | shopify_asset_url }}"
+            alt=""
+            height="{{ 570 | divided_by: 1.5 }}"
+            width="570"
+            loading="eager"
+          >
+        {%- endif %}
+      </div>
+      <h2>{{ shop.name }}</h2>
+      <div class="gift-card__text-wrapper">
+        <p class="gift-card__text">{{ 'gift_cards.issued.how_to_use_gift_card' | t }}</p>
+      </div>
+      <p id="gift-card-code" class="gift-card__number">{{ gift_card.code | format_code }}</p>
+      <div class="gift-card__qr-code" data-identifier="{{ gift_card.qr_identifier }}"></div>
+      {%- if gift_card.pass_url -%}
+        <a href="{{ gift_card.pass_url }}" class="gift_card__apple-wallet no-print">
+          <img
+            src="{{ 'gift-card/add-to-apple-wallet.svg' | shopify_asset_url }}"
+            width="120"
+            height="40"
+            alt="{{ 'gift_cards.issued.add_to_apple_wallet' | t }}"
+            loading="lazy"
+          >
+        </a>
+      {%- endif -%}
+      <div class="gift-card__buttons no-print">
+        <span class="gift-card__copy-success form__message" role="status"></span>
+        <template>
+          <span class="svg-wrapper">
+            {{- 'icon-success.svg' | inline_asset_content -}}
+          </span>
+          {{ 'gift_cards.issued.copy_code_success' | t }}
+        </template>
+        <button class="button gift-card__copy-button">{{ 'gift_cards.issued.copy_code' | t }}</button>
+        <a
+          href="{{ shop.url }}"
+          class="button button--secondary"
+          target="_blank"
+          rel="noopener"
+          aria-describedby="a11y-new-window-message"
+        >
+          {{ 'gift_cards.issued.shop_link' | t }}
+        </a>
+      </div>
     </main>
 
     <div hidden>
-      <span id="a11y-new-window-message">
-        {{- 'accessibility.link_messages.new_window' | t -}}
-      </span>
+      <span id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</span>
     </div>
   </body>
 </html>
 
 <script>
-  const string = {qrImageAlt: {{ 'gift_cards.issued.qr_image_alt' | t | json }} };
-  document.addEventListener('DOMContentLoaded', function () {
-    QRCodeContainer = document.querySelector('.gift-card__qr-code');
-    if (QRCodeContainer) {
-      new QRCode(QRCodeContainer, {
-        text: QRCodeContainer.dataset.identifier,
-        width: 120,
-        height: 120,
-        imageAltText: string.qrImageAlt
-      });
-    }
-  });
-
-  const template = document.getElementsByTagName("template")[0];
-  const clonedTemplate = template.content.cloneNode(true);
-
-  let isMessageDisplayed = false;
-  document
-    .querySelector('.gift-card__copy-link')
-    .addEventListener('click', () => {
-      navigator.clipboard.writeText(document.querySelector('.gift-card__number').value).then(function () {
-        if (!isMessageDisplayed) {
-          document.querySelector('.gift-card__copy-success').appendChild(clonedTemplate);
-          isMessageDisplayed = true
-        }
-      });
+  var string = { qrImageAlt: {{ 'gift_cards.issued.qr_image_alt' | t | json }} };
+  document.addEventListener('DOMContentLoaded', function() {
+   new QRCode( document.querySelector('.gift-card__qr-code'), {
+    text: document.querySelector('.gift-card__qr-code').dataset.identifier,
+    width: 72,
+    height: 72,
+    imageAltText: string.qrImageAlt
     });
+  });
+  var template = document.getElementsByTagName("template")[0];
+  var clonedTemplate = template.content.cloneNode(true);
+  var isMessageDisplayed = false
+  document
+  .querySelector('.gift-card__copy-button')
+  .addEventListener('click', () => {
+    navigator.clipboard.writeText(document.getElementById('gift-card-code').innerText).then(function () {
+      if (!isMessageDisplayed) {
+        document.querySelector('.gift-card__copy-success').appendChild(clonedTemplate);
+        isMessageDisplayed = true
+      }
+    });
+  });
 </script>
-

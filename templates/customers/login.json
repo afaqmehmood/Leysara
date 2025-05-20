@@ -12,12 +12,9 @@
     "main": {
       "type": "main-login",
       "settings": {
-        "section_heading_size": "h2",
-        "text": "",
-        "image_ratio": "16/9",
-        "button_style": "secondary",
-        "button_dot": false,
-        "margin_bottom": "s"
+        "enable_shop_login_button": false,
+        "padding_top": 52,
+        "padding_bottom": 100
       }
     }
   },

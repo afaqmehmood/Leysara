@@ -8,67 +8,99 @@
  * ------------------------------------------------------------
  */
 {
+  "name": "t:sections.footer.name",
   "type": "footer",
-  "name": "t:sections.footer.settings.footer-group.label",
   "sections": {
+    "newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Subscribe to our emails",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Join our email list for exclusive offers and the latest news. </p>"
+          }
+        },
+        "email-form": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "paragraph",
+        "email-form"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 44,
+        "padding_bottom": 8
+      }
+    },
     "footer": {
       "type": "footer",
       "blocks": {
-        "contacts_DwwK6K": {
-          "type": "contacts",
+        "text_nret4y": {
+          "type": "text",
           "settings": {
-            "address": "Markerkant 10 78, Almere",
-            "phone": "1-212-123 45 67",
-            "email": "klantenservice@leysara.nl",
-            "working_hours": "09:00-21:00"
+            "heading": "",
+            "subtext": "<h5>Adres</h5><p>Markerkant 10 78, Almere</p><h5>Contacten</h5><p><a href=\"tel:1-212-123 45 67\">1-212-123 45 67</a><a href=\"mailto:klantenservice@leysara.nl\">klantenservice@leysara.nl</a></p><h5>Werkuren</h5><p>09:00-21:00</p>"
           }
         },
-        "footer-1": {
+        "link_list_YmMqiE": {
           "type": "link_list",
           "settings": {
             "heading": "Ons beleid",
-            "menu": "our-policies",
-            "default_open": false
+            "menu": "our-policies"
           }
         },
-        "footer-2": {
+        "link_list_YDVWFE": {
           "type": "link_list",
           "settings": {
             "heading": "Helpcentrum",
-            "menu": "help-center",
-            "default_open": false
+            "menu": "help-center"
           }
         },
-        "footer-3": {
+        "link_list_AeTweR": {
           "type": "link_list",
           "settings": {
             "heading": "Informatie",
-            "menu": "information",
-            "default_open": false
+            "menu": "information"
           }
         }
       },
       "block_order": [
-        "contacts_DwwK6K",
-        "footer-1",
-        "footer-2",
-        "footer-3"
+        "text_nret4y",
+        "link_list_YmMqiE",
+        "link_list_YDVWFE",
+        "link_list_AeTweR"
       ],
       "settings": {
-        "color_scheme": "background-2",
-        "icon_style": "secondary",
+        "color_scheme": "scheme-2",
+        "newsletter_enable": false,
+        "newsletter_heading": "",
+        "enable_follow_on_shop": false,
         "show_social": true,
         "enable_country_selector": true,
         "enable_language_selector": true,
         "payment_enable": true,
         "show_policy": false,
-        "enable_copyright_date": true,
-        "enable_copyright_shopname": true,
-        "enable_follow_on_shop": false
+        "margin_top": 0,
+        "padding_top": 44,
+        "padding_bottom": 48
       }
     }
   },
   "order": [
+    "newsletter",
     "footer"
   ]
 }

@@ -12,12 +12,8 @@
     "main": {
       "type": "main-register",
       "settings": {
-        "section_heading_size": "h2",
-        "text": "",
-        "image_ratio": "16/9",
-        "button_style": "secondary",
-        "button_dot": false,
-        "margin_bottom": "s"
+        "padding_top": 36,
+        "padding_bottom": 72
       }
     }
   },

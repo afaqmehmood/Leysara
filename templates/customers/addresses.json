@@ -8,17 +8,16 @@
  * ------------------------------------------------------------
  */
 {
-	"sections": {
-		"main": {
-			"type": "main-addresses",
-			"settings": {}
-		},
-		"newsletter": {
-			"type": "newsletter",
-			"settings": {
-				"color_scheme": "background-1"
-			}
-		}
-	},
-	"order": ["main", "newsletter"]
+  "sections": {
+    "main": {
+      "type": "main-addresses",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 72
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
 }

@@ -9,651 +9,368 @@
  */
 {
   "sections": {
-    "slideshow_HXHbtm": {
+    "slideshow_kU36wz": {
       "type": "slideshow",
       "blocks": {
-        "slideshow_item_Dj7yai": {
-          "type": "slideshow_item",
-          "disabled": true,
+        "slide_MqXDBt": {
+          "type": "slide",
           "settings": {
-            "color_scheme": "",
-            "heading": "100 Nights, Risk-Free Comfort!",
-            "text": "<p>100 nights of trial sleep: Is your bed like a cloud, but not quite your thing? Try your new bed for 100 nights and if it's not perfect, we'll take it back without any hassle.</p>",
-            "text_width": "small",
+            "image_overlay_opacity": 0,
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
             "button_label": "Shop Now",
-            "button_link": "shopify://collections/all",
-            "button_dot": true,
-            "button_style": "primary",
-            "overlay_enable": true,
-            "overlay_opacity": 0,
-            "overlay_opacity_mobile": 0
-          }
-        },
-        "slideshow_item_xaTGcT": {
-          "type": "slideshow_item",
-          "disabled": true,
-          "settings": {
-            "color_scheme": "",
-            "heading": "5-Year Warranty, Guaranteed Quality!",
-            "text": "<p>5-year warranty: Our beds are built to last, so you can sleep worry-free for years to come. We even offer a 5-year warranty, because we trust the quality we deliver.</p>",
-            "text_width": "small",
-            "button_label": "Shop Now",
-            "button_link": "shopify://collections/all",
-            "button_dot": true,
-            "button_style": "primary",
-            "overlay_enable": true,
-            "overlay_opacity": 0,
-            "overlay_opacity_mobile": 0
-          }
-        },
-        "slideshow_item_9T9ftC": {
-          "type": "slideshow_item",
-          "disabled": true,
-          "settings": {
-            "color_scheme": "",
-            "heading": "Limited Time: Save 35%!",
-            "text": "<p>Don't miss out on this exclusive offer! Save a massive 35% on your favorite products for a limited time only. Shop now and enjoy unbeatable savings before the deal ends!</p>",
-            "text_width": "small",
-            "button_label": "Shop Now",
-            "button_link": "shopify://collections/all",
-            "button_dot": true,
-            "button_style": "primary",
-            "overlay_enable": true,
-            "overlay_opacity": 0,
-            "overlay_opacity_mobile": 0
-          }
-        },
-        "slideshow_item_zDjdzU": {
-          "type": "slideshow_item",
-          "disabled": true,
-          "settings": {
-            "color_scheme": "",
-            "heading": "Delivery Guaranteed, No Surprises!",
-            "text": "<p>Delivery time as promised: Whether you live on the ground floor or on the fourth floor, we will deliver your bed on the agreed date as stated on our website. No surprises!</p>",
-            "text_width": "small",
-            "button_label": "Shop Now",
-            "button_link": "shopify://collections/all",
-            "button_dot": true,
-            "button_style": "primary",
-            "overlay_enable": true,
-            "overlay_opacity": 0,
-            "overlay_opacity_mobile": 0
-          }
-        },
-        "slideshow_item_cAfgYd": {
-          "type": "slideshow_item",
-          "settings": {
-            "video": "shopify://files/videos/f957e4fc-81fe-4eb4-9b4c-1c3f674c31e8_restream.mp4",
-            "color_scheme": "background-3",
-            "heading": "Openingsactie !",
-            "text": "<p>Nu geopend! Tijdelijk 30% korting op alle bedden !</p>",
-            "text_width": "small",
-            "button_label": "Bekijk Openingsactie",
-            "button_link": "shopify://collections/all",
-            "button_dot": false,
-            "button_style": "tertiary",
-            "overlay_enable": true,
-            "overlay_opacity": 0,
-            "overlay_opacity_mobile": 0
+            "link": "",
+            "button_style_secondary": false,
+            "show_text_box": true,
+            "box_align": "middle-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": ""
           }
         }
       },
       "block_order": [
-        "slideshow_item_Dj7yai",
-        "slideshow_item_xaTGcT",
-        "slideshow_item_9T9ftC",
-        "slideshow_item_zDjdzU",
-        "slideshow_item_cAfgYd"
+        "slide_MqXDBt"
       ],
+      "disabled": true,
+      "name": "t:sections.slideshow.presets.name",
       "settings": {
-        "header_overlay": true,
-        "header_transparent": false,
-        "color_scheme_header": "",
-        "light_logo": true,
-        "section_layout": "full",
-        "text_position": "center",
-        "pagination_position": "bottom",
-        "image_size": "21/9",
-        "image_size_mobile": "21/9",
-        "text_position_mobile": "bottom-left",
-        "is_autoplay": true,
-        "is_hover_stop_autoplay": false,
-        "slideshow_speed": 1.1,
-        "slideshow_delay": 3,
-        "slide_effects": "slide",
-        "text_animation": true,
-        "margin_top": "no-indent",
-        "margin_bottom": "no-indent"
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Diavoorstelling over ons merk"
       }
     },
-    "multicolumn_yAV7KB": {
+    "video_q6hpei": {
+      "type": "video",
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": true,
+        "video": "shopify://files/videos/f957e4fc-81fe-4eb4-9b4c-1c3f674c31e8_restream.mp4",
+        "video_url": "",
+        "description": "",
+        "full_width": true,
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "multicolumn_RUXXfz": {
       "type": "multicolumn",
       "blocks": {
-        "column_QTq6hp": {
+        "column_7c6Gd7": {
           "type": "column",
           "settings": {
-            "image_size": "adapt",
-            "icon": "none",
-            "heading": "100 nachten proefslapen",
-            "text": "Twijfel? Geen stress. <strong>Slaap er 100 nachten op</strong> en als het niet de perfecte match is, halen we ‘m gewoon weer op. Gratis. Want een bed moet <strong>heerlijk</strong> liggen.",
-            "button_label": "",
-            "button_link": "",
-            "button_dot": false,
-            "button_style": "primary",
-            "full_link": false
+            "title": "100 nachten proefslapen",
+            "text": "<p>Twijfel? Geen stress. <strong>Slaap er 100 nachten op</strong> en als het niet de perfecte match is, halen we ‘m gewoon weer op. Gratis. Want een bed moet <strong>heerlijk</strong> liggen.</p>",
+            "link_label": "",
+            "link": ""
           }
         },
-        "column_WKG8me": {
+        "column_VN4ite": {
           "type": "column",
           "settings": {
-            "image_size": "adapt",
-            "icon": "none",
-            "heading": "5 jaar zorgeloos slapen",
-            "text": "Onze bedden zijn gemaakt om <strong>jaren mee te gaan.</strong> Daarom krijg je standaard 5 jaar garantie. Geen kleine lettertjes, gewoon een bed waarop je kunt rekenen.",
-            "button_label": "",
-            "button_link": "",
-            "button_dot": false,
-            "button_style": "primary",
-            "full_link": false
+            "title": "5 jaar zorgeloos slapen",
+            "text": "<p>Onze bedden zijn gemaakt om <strong>jaren mee te gaan.</strong> Daarom krijg je standaard 5 jaar garantie. Geen kleine lettertjes, gewoon een bed waarop je kunt rekenen.</p>",
+            "link_label": "",
+            "link": ""
           }
         },
-        "column_PfVxbp": {
+        "column_dwQnq7": {
           "type": "column",
           "settings": {
-            "image_size": "adapt",
-            "icon": "none",
-            "heading": "Bezorgd zoals beloofd",
-            "text": "Jij kiest de datum, wij leveren. Of je nu op de begane grond woont of op vierhoog zonder lift, we zetten je bed precies neer waar jij wilt. Zonder verrassingen. <strong>Gewoon zoals het hoort.</strong>",
-            "button_label": "",
-            "button_link": "",
-            "button_dot": false,
-            "button_style": "primary",
-            "full_link": false
+            "title": "Bezorgd zoals beloofd",
+            "text": "<p>Jij kiest de datum, wij leveren. Of je nu op de begane grond woont of op vierhoog zonder lift, we zetten je bed precies neer waar jij wilt. Zonder verrassingen. <strong>Gewoon zoals het hoort.</strong></p>",
+            "link_label": "",
+            "link": ""
           }
         }
       },
       "block_order": [
-        "column_QTq6hp",
-        "column_WKG8me",
-        "column_PfVxbp"
+        "column_7c6Gd7",
+        "column_VN4ite",
+        "column_dwQnq7"
       ],
+      "name": "t:sections.multicolumn.presets.name",
       "settings": {
-        "section_heading": "",
-        "section_heading_size": "h1",
-        "subheading": "",
-        "dot": true,
-        "columns_per_row": 3,
-        "content_alignment": "center",
-        "swipe_on_mobile": true,
-        "card_heading_size": "h4",
-        "margin_top": "m",
-        "margin_bottom": "m"
-      }
-    },
-    "featured_product_dzfXNd": {
-      "type": "featured-product",
-      "blocks": {
-        "text_qeGMJW": {
-          "type": "text",
-          "settings": {
-            "text": "{{ section.settings.product_item.vendor }}"
-          }
-        },
-        "title_Ci3V83": {
-          "type": "title",
-          "settings": {
-            "heading_size": "h2",
-            "badges_type": "inline",
-            "badges_color": ""
-          }
-        },
-        "price_W4xtEp": {
-          "type": "price",
-          "settings": {
-            "show_tax_info": false,
-            "show_shipping": false
-          }
-        },
-        "variant_picker_VFP3K6": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button"
-          }
-        },
-        "buy_buttons_YXFwKM": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_quantity": true,
-            "show_gift_card_recipient": false
-          }
-        }
-      },
-      "block_order": [
-        "text_qeGMJW",
-        "title_Ci3V83",
-        "price_W4xtEp",
-        "variant_picker_VFP3K6",
-        "buy_buttons_YXFwKM"
-      ],
-      "disabled": true,
-      "settings": {
+        "title": "",
+        "heading_size": "hxl",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
         "color_scheme": "",
-        "product_item": "",
-        "section_layout": "full",
-        "desktop_alignment": "left",
-        "mobile_alignment": "before",
-        "gallery_type": "thumbs_aside",
-        "image_fit": "cover",
-        "is_autoplay": false,
-        "is_hover_stop_autoplay": false,
-        "show_arrows": false,
-        "slideshow_speed": 1.1,
-        "slideshow_delay": 3,
-        "margin_top": "xl",
-        "margin_bottom": "no-indent"
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
-    "product_slider_XAHzUr": {
-      "type": "product-slider",
+    "featured-collection": {
+      "type": "featured-collection",
       "settings": {
-        "columns_per_row": 3,
-        "section_heading": "",
-        "section_heading_size": "h2",
-        "subheading": "",
-        "dot": true,
-        "line": true,
         "collection": "new-arrivals",
-        "product_list": [],
-        "autoplay": true,
-        "stop_autoplay": true,
-        "show_arrows": true,
-        "slideshow_speed": 1.1,
-        "slideshow_delay": 3,
-        "button_style": "tertiary",
-        "image_ratio": "square",
-        "image_fit": "contain",
-        "show_collection_name": false,
+        "products_to_show": 12,
+        "title": "",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "full_width": true,
+        "show_view_all": false,
+        "view_all_style": "link",
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
         "show_secondary_image": true,
-        "show_sku": false,
         "show_vendor": false,
-        "show_desc": false,
-        "margin_top": "m",
-        "margin_bottom": "m"
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
-    "slideshow_column_WUqK3Y": {
-      "type": "slideshow-column",
+    "multirow_TVRt6c": {
+      "type": "multirow",
       "blocks": {
-        "split_screen_slid_Tjaaac": {
-          "type": "split_screen_slid",
-          "disabled": true,
+        "row_bn36tY": {
+          "type": "row",
           "settings": {
-            "color_scheme": "background-3",
-            "heading": "Lekker slapen, zonder poespas",
-            "text": "<p>Iedereen verdient een heerlijk bed. Comfortabel, stijlvol en zonder dat je er een fortuin voor hoeft neer te leggen. Onze bedden zijn gemaakt van luxe materialen, passen in elk interieur en bieden ultiem slaapcomfort. En dat voor een prijs waar je wél lekker van slaapt. Topkwaliteit + topservice = zorgeloos genieten van je nachtrust.</p>",
-            "image_second": "shopify://shop_images/1440-e1736504395206.jpg",
+            "image": "shopify://shop_images/4x.jpg",
+            "caption": "",
+            "heading": "100 nachten proefslapen",
+            "text": "<p>Twijfel? Dat snappen we. Daarom mag je <strong>100 nachten proefslapen</strong> op je nieuwe bed. Bevalt het niet? Geen stress, we halen ‘m gewoon weer op. Gratis en zonder gedoe. Zo weet je zeker dat je de juiste keuze maakt. <strong>Gewoon bij jou thuis, in je eigen slaapkamer.</strong></p>",
             "button_label": "",
-            "button_link": "",
-            "button_dot": true,
-            "button_style": "primary",
-            "overlay_enable": true,
-            "overlay_opacity": 0
+            "button_link": ""
           }
         },
-        "split_screen_slid_jtG4PK": {
-          "type": "split_screen_slid",
-          "disabled": true,
+        "row_Rpcb9d": {
+          "type": "row",
           "settings": {
-            "color_scheme": "background-3",
-            "heading": "Geef je slaapkamer een upgrade",
-            "text": "<p>Toe aan een frisse look? Met onze premium bedden en slaapkamercollectiesmaak je van je kamer een plek waar je niet alleen heerlijk slaapt, maar die er ook stijlvol en warm uitziet. Mooi voor jou, indrukwekkend voor iedereen die binnenkomt. Comfort + stijl = jouw perfecte slaapkamer!</p>",
-            "image_second": "shopify://shop_images/color-year-interior-design-space-with-furniture-decor-scaled-1-2048x1170-1.jpg",
+            "image": "shopify://shop_images/ChatGPT_Image_20_apr_2025_21_22_50.png",
+            "caption": "",
+            "heading": "Luxe slaap, geen luxe prijs",
+            "text": "<p>Iedereen verdient een heerlijk bed. Comfortabel, stijlvol en zonder dat je er een fortuin voor hoeft neer te leggen. Onze bedden zijn gemaakt van luxe materialen, passen in elk interieur en bieden ultiem slaapcomfort. En dat voor een prijs waar je wél lekker van slaapt. <br/><br/><strong>Topkwaliteit + topservice = zorgeloos genieten van je nachtrust.</strong></p>",
             "button_label": "",
-            "button_link": "",
-            "button_dot": true,
-            "button_style": "primary",
-            "overlay_enable": true,
-            "overlay_opacity": 0
+            "button_link": ""
+          }
+        },
+        "row_tcP3tF": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/3x.jpg",
+            "caption": "",
+            "heading": "Voor iedereen die goed wil slapen",
+            "text": "<p>Bij Leysara vinden we dat iedereen heerlijk moet kunnen slapen. Stevig of zacht — jouw perfecte bed vind je bij ons.<br/><br/>Topkwaliteit, duurzaam, zonder gedoe.<br/><br/><strong>Onze missie? Jou elke dag uitgerust laten beginnen.</strong></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_Dqi7yh": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_20_apr_2025_21_56_09.png",
+            "caption": "",
+            "heading": "Jouw kamer. Mooier.",
+            "text": "<p>Toe aan een frisse look? Met onze premium bedden en slaapkamercollectiesmaak je van je kamer een plek waar je niet alleen heerlijk slaapt, maar die er ook stijlvol en warm uitziet. Mooi voor jou, indrukwekkend voor iedereen die binnenkomt. <br/><strong>Comfort + stijl = jouw perfecte slaapkamer!</strong></p>",
+            "button_label": "",
+            "button_link": ""
           }
         }
       },
       "block_order": [
-        "split_screen_slid_Tjaaac",
-        "split_screen_slid_jtG4PK"
+        "row_bn36tY",
+        "row_Rpcb9d",
+        "row_tcP3tF",
+        "row_Dqi7yh"
       ],
-      "disabled": true,
+      "name": "t:sections.multirow.presets.name",
       "settings": {
-        "section_layout": "container",
-        "text_alignment": "center",
-        "image_size": "16/9",
-        "image_size_mobile": "1/1",
-        "is_autoplay": true,
-        "slideshow_speed": 1,
-        "slideshow_delay": 3,
-        "slide_effects": "slide",
-        "margin_top": "no-indent",
-        "margin_bottom": "no-indent"
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h2",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "row_color_scheme": "scheme-3",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
-    "image_with_text_iiFR9b": {
-      "type": "image-with-text",
-      "settings": {
-        "color_scheme": "background-3",
-        "image_position": "image_left",
-        "content_alignment": "left",
-        "image": "shopify://shop_images/4x.jpg",
-        "image_size": "16/9",
-        "subheading": "",
-        "dot": true,
-        "heading": "100 nachten proefslapen",
-        "heading_size": "h3",
-        "text": "<p>Twijfel? Dat snappen we. Daarom mag je <strong>100 nachten proefslapen</strong> op je nieuwe bed. Bevalt het niet? Geen stress, we halen ‘m gewoon weer op. Gratis en zonder gedoe. Zo weet je zeker dat je de juiste keuze maakt. <strong>Gewoon bij jou thuis, in je eigen slaapkamer.</strong></p>",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "primary",
-        "button_dot": true,
-        "margin_top": "xs",
-        "margin_bottom": "s"
-      }
-    },
-    "image_with_text_PNLhkm": {
-      "type": "image-with-text",
-      "settings": {
-        "color_scheme": "background-3",
-        "image_position": "image_right",
-        "content_alignment": "left",
-        "image": "shopify://shop_images/ChatGPT_Image_20_apr_2025_21_22_50.png",
-        "image_size": "16/9",
-        "subheading": "",
-        "dot": true,
-        "heading": "Luxe slaap, geen luxe prijs",
-        "heading_size": "h3",
-        "text": "<p>Iedereen verdient een heerlijk bed. Comfortabel, stijlvol en zonder dat je er een fortuin voor hoeft neer te leggen. Onze bedden zijn gemaakt van luxe materialen, passen in elk interieur en bieden ultiem slaapcomfort. En dat voor een prijs waar je wél lekker van slaapt. <br/><br/><strong>Topkwaliteit + topservice = zorgeloos genieten van je nachtrust.</strong></p>",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "primary",
-        "button_dot": true,
-        "margin_top": "no-indent",
-        "margin_bottom": "s"
-      }
-    },
-    "image_with_text_it3MJR": {
-      "type": "image-with-text",
-      "settings": {
-        "color_scheme": "background-3",
-        "image_position": "image_right",
-        "content_alignment": "left",
-        "image": "shopify://shop_images/3x.jpg",
-        "image_size": "16/9",
-        "subheading": "",
-        "dot": true,
-        "heading": "Voor iedereen die goed wil slapen",
-        "heading_size": "h3",
-        "text": "<p>Bij Leysara vinden we dat iedereen heerlijk moet kunnen slapen. Stevig of zacht — jouw perfecte bed vind je bij ons.<br/><br/>Topkwaliteit, duurzaam, zonder gedoe.<br/><br/><strong>Onze missie? Jou elke dag uitgerust laten beginnen.</strong></p>",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "primary",
-        "button_dot": true,
-        "margin_top": "no-indent",
-        "margin_bottom": "s"
-      }
-    },
-    "image_with_text_grrKfF": {
-      "type": "image-with-text",
-      "settings": {
-        "color_scheme": "background-3",
-        "image_position": "image_left",
-        "content_alignment": "left",
-        "image": "shopify://shop_images/ChatGPT_Image_20_apr_2025_21_56_09.png",
-        "image_size": "16/9",
-        "subheading": "",
-        "dot": true,
-        "heading": "Jouw kamer. Mooier.",
-        "heading_size": "h3",
-        "text": "<p>Toe aan een frisse look? Met onze premium bedden en slaapkamercollectiesmaak je van je kamer een plek waar je niet alleen heerlijk slaapt, maar die er ook stijlvol en warm uitziet. Mooi voor jou, indrukwekkend voor iedereen die binnenkomt. <br/><strong>Comfort + stijl = jouw perfecte slaapkamer!</strong></p>",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "primary",
-        "button_dot": true,
-        "margin_top": "no-indent",
-        "margin_bottom": "s"
-      }
-    },
-    "image_banner_CNdLnb": {
-      "type": "image-banner",
-      "disabled": true,
-      "settings": {
-        "color_scheme": "",
-        "heading": "Sleep better, live better",
-        "section_heading": "",
-        "section_heading_size": "h2",
-        "subheading": "",
-        "dot": true,
-        "image_ratio": "16/9",
-        "animation": false,
-        "overlay_enable": true,
-        "overlay_opacity": 0.2,
-        "margin_top": "m",
-        "margin_bottom": "m"
-      }
-    },
-    "slideshow_eMJ4yR": {
+    "slideshow_ncd9fD": {
       "type": "slideshow",
       "blocks": {
-        "slideshow_item_BeYx4R": {
-          "type": "slideshow_item",
+        "slide_cNDJhg": {
+          "type": "slide",
           "settings": {
-            "desktop_image": "shopify://shop_images/Mid-slide_f6808015-56dc-43ea-8293-4f4f1259feed.jpg",
-            "color_scheme": "",
+            "image": "shopify://shop_images/Mid-slide_f6808015-56dc-43ea-8293-4f4f1259feed.jpg",
+            "image_overlay_opacity": 0,
             "heading": "Slaap beter, leef beter",
-            "text": "<p>Jouw slaapkamer is méér dan een plek om te slapen. Het is waar je ontspant, oplaadt en geniet van ultiem comfort. Met onze luxe bedden creëer je een <strong>stijlvolle en rustgevende ruimte </strong>– perfect voor een goede nachtrust.</p>",
-            "text_width": "large",
+            "heading_size": "h1",
+            "subheading": "Jouw slaapkamer is méér dan een plek om te slapen. Het is waar je ontspant, oplaadt en geniet van ultiem comfort. Met onze luxe bedden creëer je een <strong>stijlvolle en rustgevende ruimte </strong>– perfect voor een goede nachtrust.",
             "button_label": "Ontdek jouw bed",
-            "button_link": "shopify://pages/about-us",
-            "button_dot": false,
-            "button_style": "primary",
-            "overlay_enable": true,
-            "overlay_opacity": 0,
-            "overlay_opacity_mobile": 0
+            "link": "shopify://pages/about-us",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "middle-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-4"
           }
         }
       },
       "block_order": [
-        "slideshow_item_BeYx4R"
+        "slide_cNDJhg"
       ],
+      "name": "t:sections.slideshow.presets.name",
       "settings": {
-        "header_overlay": true,
-        "header_transparent": false,
-        "color_scheme_header": "",
-        "light_logo": true,
-        "section_layout": "full",
-        "text_position": "center",
-        "pagination_position": "center",
-        "image_size": "adapt",
-        "image_size_mobile": "adapt",
-        "text_position_mobile": "top-center",
-        "is_autoplay": true,
-        "is_hover_stop_autoplay": false,
-        "slideshow_speed": 1.1,
-        "slideshow_delay": 3,
-        "slide_effects": "slide",
-        "text_animation": true,
-        "margin_top": "no-indent",
-        "margin_bottom": "no-indent"
+        "layout": "full_bleed",
+        "slide_height": "adapt_image",
+        "slider_visual": "dots",
+        "auto_rotate": true,
+        "change_slides_speed": 3,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": ""
       }
     },
-    "image_with_text_FmztKz": {
+    "image_with_text_wRUgxB": {
       "type": "image-with-text",
+      "blocks": {
+        "heading_xx3Vkr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Bezorgd, waar je ook woont",
+            "heading_size": "h2"
+          }
+        },
+        "text_YpFbBA": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Of je nu in hartje Amsterdam woont of in een klein dorp, wij bezorgen <strong>snel en zorgvuldig</strong> door heel Nederland.<strong> Op tijd en in perfecte staat.</strong> <strong>Van grote steden tot de kleinste dorpen, wij komen naar je toe.</strong></p>",
+            "text_style": "body"
+          }
+        },
+        "button_CXiTrr": {
+          "type": "button",
+          "settings": {
+            "button_label": "Neem Contact Met Ons Op",
+            "button_link": "shopify://pages/contact-us",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_xx3Vkr",
+        "text_YpFbBA",
+        "button_CXiTrr"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "color_scheme": "background-3",
-        "image_position": "image_right",
-        "content_alignment": "left",
         "image": "shopify://shop_images/5376-1.jpg",
-        "image_size": "16/9",
-        "subheading": "",
-        "dot": true,
-        "heading": "Bezorgd, waar je ook woont",
-        "heading_size": "h3",
-        "text": "<p>Of je nu in hartje Amsterdam woont of in een klein dorp, wij bezorgen <strong>snel en zorgvuldig</strong> door heel Nederland.<strong> Op tijd en in perfecte staat.</strong> <strong>Van grote steden tot de kleinste dorpen, wij komen naar je toe.</strong></p>",
-        "button_label": "Neem Contact Met Ons Op",
-        "button_link": "shopify://pages/contact-us",
-        "button_style": "primary",
-        "button_dot": false,
-        "margin_top": "s",
-        "margin_bottom": "s"
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "scheme-3",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
-    "countdown_7PngPi": {
-      "type": "countdown",
-      "name": "t:sections.countdown.presets.name",
-      "settings": {
-        "date_picker": "2025-05-30",
-        "time_picker": "00:00",
-        "countdown_block_font": "h1",
-        "completed_countdown": "show_text",
-        "countdown_heading": "Angebot beendet!",
-        "section_heading": "Sale-Angebot für die neue Saison!",
-        "section_heading_size": "h2",
-        "subheading": "",
-        "dot": true,
-        "text": "",
-        "button_label": "Jetzt kaufen",
-        "button_link": "shopify://collections/all",
-        "button_dot": true,
-        "button_style": "primary",
-        "margin_top": "l",
-        "margin_bottom": "l"
-      }
-    },
-    "collapsible_content_xCb4wp": {
+    "collapsible_content_MQXL6K": {
       "type": "collapsible-content",
       "blocks": {
-        "accordion_wdBX8W": {
-          "type": "accordion",
+        "collapsible_row_c6GWhd": {
+          "type": "collapsible_row",
           "settings": {
-            "question": "Welke plaatformaten biedt u aan?",
-            "answer": "Wij bieden lakens aan in alle standaardmaten, waaronder eenpersoons, tweepersoons, queensize, kingsize en California kingsize. In elke productlijst staan ​​de beschikbare maten duidelijk vermeld, zodat u eenvoudig de perfecte maat voor uw bed vindt.",
-            "default_open": false
+            "heading": "Welke plaatformaten biedt u aan?",
+            "icon": "check_mark",
+            "row_content": "<p>Wij bieden lakens aan in alle standaardmaten, waaronder eenpersoons, tweepersoons, queensize, kingsize en California kingsize. In elke productlijst staan ​​de beschikbare maten duidelijk vermeld, zodat u eenvoudig de perfecte maat voor uw bed vindt.</p>",
+            "page": ""
           }
         },
-        "accordion_QP3B7n": {
-          "type": "accordion",
+        "collapsible_row_HiVt7f": {
+          "type": "collapsible_row",
           "settings": {
-            "question": "Van welke materialen zijn jullie lakens gemaakt?",
-            "answer": "Ons beddengoed is gemaakt van hoogwaardige materialen zoals 100% katoen, microvezel, bamboe en linnen. Wij selecteren elke stof zorgvuldig om comfort, ademend vermogen en duurzaamheid te garanderen.",
-            "default_open": false
+            "heading": "Van welke materialen zijn jullie lakens gemaakt?",
+            "icon": "check_mark",
+            "row_content": "<p>Ons beddengoed is gemaakt van hoogwaardige materialen zoals 100% katoen, microvezel, bamboe en linnen. Wij selecteren elke stof zorgvuldig om comfort, ademend vermogen en duurzaamheid te garanderen.</p>",
+            "page": ""
           }
         },
-        "accordion_dai8VF": {
-          "type": "accordion",
+        "collapsible_row_xW8KyE": {
+          "type": "collapsible_row",
           "settings": {
-            "question": "Hoe verzorg en was ik de lakens?",
-            "answer": "Om uw beddengoed in goede conditie te houden, adviseren wij u het in de wasmachine te wassen met vergelijkbare kleuren in koud water en het in de droger te drogen op een lage stand. Gebruik geen bleekmiddel en gebruik geen hoge temperaturen om de zachtheid en kleurechtheid te behouden.",
-            "default_open": false
+            "heading": "Hoe verzorg en was ik de lakens?",
+            "icon": "check_mark",
+            "row_content": "<p>Om uw beddengoed in goede conditie te houden, adviseren wij u het in de wasmachine te wassen met vergelijkbare kleuren in koud water en het in de droger te drogen op een lage stand. Gebruik geen bleekmiddel en gebruik geen hoge temperaturen om de zachtheid en kleurechtheid te behouden.</p>",
+            "page": ""
           }
         },
-        "accordion_TdWzej": {
-          "type": "accordion",
+        "collapsible_row_cppAUd": {
+          "type": "collapsible_row",
           "settings": {
-            "question": "Bieden jullie retour- en ruilmogelijkheden aan?",
-            "answer": "Ja, wij hanteren een retour- en omruilbeleid van 30 dagen. Bent u niet tevreden met uw aankoop, neem dan gerust contact op met onze klantenservice. Wij helpen u graag verder.",
-            "default_open": false
+            "heading": "Bieden jullie retour- en ruilmogelijkheden aan?",
+            "icon": "check_mark",
+            "row_content": "<p>Ja, wij hanteren een retour- en omruilbeleid van 30 dagen. Bent u niet tevreden met uw aankoop, neem dan gerust contact op met onze klantenservice. Wij helpen u graag verder.</p>",
+            "page": ""
           }
         }
       },
       "block_order": [
-        "accordion_wdBX8W",
-        "accordion_QP3B7n",
-        "accordion_dai8VF",
-        "accordion_TdWzej"
+        "collapsible_row_c6GWhd",
+        "collapsible_row_HiVt7f",
+        "collapsible_row_xW8KyE",
+        "collapsible_row_cppAUd"
       ],
-      "name": "t:sections.collapsible-content.name",
+      "name": "t:sections.collapsible_content.presets.name",
       "settings": {
-        "section_layout": "row",
-        "icon_style": "secondary",
-        "section_heading": "Veelgestelde vragen",
-        "section_heading_size": "h2",
-        "section_subheading": "",
-        "dot": false,
-        "section_button_label": "",
-        "section_button_link": "",
-        "button_dot": true,
-        "section_button_style": "primary",
-        "margin_top": "s",
-        "margin_bottom": "s"
-      }
-    },
-    "testimonials_jbRNEW": {
-      "type": "testimonials",
-      "blocks": {
-        "testimonials_slide_r9Vn7C": {
-          "type": "testimonials_slide",
-          "settings": {
-            "text": "“Some review text that describes the product's highlights, features, and important details.”",
-            "author_name": "Author Name",
-            "position_name": "Position",
-            "enable_stars": true,
-            "rating": 5
-          }
-        },
-        "testimonials_slide_N9La3b": {
-          "type": "testimonials_slide",
-          "settings": {
-            "text": "“Some review text that describes the product's highlights, features, and important details.”",
-            "author_name": "Author Name",
-            "position_name": "Position",
-            "enable_stars": true,
-            "rating": 5
-          }
-        },
-        "testimonials_slide_gAjdFa": {
-          "type": "testimonials_slide",
-          "settings": {
-            "text": "“Some review text that describes the product's highlights, features, and important details.”",
-            "author_name": "Author Name",
-            "position_name": "Position",
-            "enable_stars": true,
-            "rating": 5
-          }
-        }
-      },
-      "block_order": [
-        "testimonials_slide_r9Vn7C",
-        "testimonials_slide_N9La3b",
-        "testimonials_slide_gAjdFa"
-      ],
-      "disabled": true,
-      "settings": {
-        "section_heading": "Some heading for this section",
-        "section_heading_size": "h2",
-        "subheading": "Some Subheading",
-        "dot": true,
-        "is_autoplay": true,
-        "is_hover_stop_autoplay": true,
-        "slideshow_speed": 1.1,
-        "slideshow_delay": 4,
-        "button_style": "tertiary",
-        "margin_top": "xl",
-        "margin_bottom": "no-indent"
+        "caption": "",
+        "heading": "Veelgestelde vragen",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },
   "order": [
-    "slideshow_HXHbtm",
-    "multicolumn_yAV7KB",
-    "featured_product_dzfXNd",
-    "product_slider_XAHzUr",
-    "slideshow_column_WUqK3Y",
-    "image_with_text_iiFR9b",
-    "image_with_text_PNLhkm",
-    "image_with_text_it3MJR",
-    "image_with_text_grrKfF",
-    "image_banner_CNdLnb",
-    "slideshow_eMJ4yR",
-    "image_with_text_FmztKz",
-    "countdown_7PngPi",
-    "collapsible_content_xCb4wp",
-    "testimonials_jbRNEW"
+    "slideshow_kU36wz",
+    "video_q6hpei",
+    "multicolumn_RUXXfz",
+    "featured-collection",
+    "multirow_TVRt6c",
+    "slideshow_ncd9fD",
+    "image_with_text_wRUgxB",
+    "collapsible_content_MQXL6K"
   ]
 }

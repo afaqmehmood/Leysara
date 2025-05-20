@@ -24,11 +24,43 @@
       disabled
     >
     <label class="recipient-checkbox" for="Recipient-checkbox-{{ section.id }}">
-      <svg width="20" height="20" class="icon icon-checkmark" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M8.70186 13.3334L5.55566 10.1872L6.18626 9.55663L8.70186 12.0722L14.1073 6.66675L14.7379 7.29733L8.70186 13.3334Z" fill="currentColor" stroke="currentColor" stroke-width="0.5"/>
-      </svg>
+      {{ 'square.svg' | inline_asset_content }}
+      {{- 'icon-checkmark.svg' | inline_asset_content -}}
       <span>{{ 'recipient.form.checkbox' | t }}</span>
     </label>
+    <div
+      class="product-form__recipient-error-message-wrapper"
+      role="alert"
+      {% unless form.errors %}
+        hidden
+      {% endunless %}
+    >
+      <h2 class="form__message" tabindex="-1" autofocus>
+        {{- 'icon-error.svg' | inline_asset_content -}}
+        <span class="error-message">{{ 'templates.contact.form.error_heading' | t }}</span>
+      </h2>
+
+      <ul>
+        {%- if form.errors -%}
+          {%- for field in form.errors -%}
+            <li>
+              {%- if field == 'form' -%}
+                {{ form.errors.messages[field] }}
+              {%- else -%}
+                <a href="#Recipient-{{ field }}-{{ section.id }}">
+                  {{ form.errors.messages[field] }}
+                </a>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        {%- endif -%}
+      </ul>
+    </div>
+    <p
+      id="Recipient-fields-live-region-{{ section.id }}"
+      class="visually-hidden"
+      role="status"
+    ></p>
     <div class="recipient-fields">
       <hr>
       <div class="recipient-fields__field">
@@ -46,14 +78,9 @@
             {% endif %}
           >
           <label class="field__label" for="Recipient-email-{{ section.id }}">
-            <span class="recipient-email-label required">
-              {{- 'recipient.form.email_label' | t -}}
-            </span>
+            <span class="recipient-email-label required">{{ 'recipient.form.email_label' | t }}</span>
             <span class="recipient-email-label optional">
-              {{-
-                'recipient.form.email_label_optional_for_no_js_behavior'
-                | t
-              -}}
+              {{- 'recipient.form.email_label_optional_for_no_js_behavior' | t -}}
             </span>
           </label>
         </div>
@@ -62,6 +89,7 @@
           id="RecipientForm-email-error-{{ section.id }}"
           class="form__message{% unless form.errors contains 'email' %} hidden{% endunless %}"
         >
+          {{- 'icon-error.svg' | inline_asset_content -}}
           <span class="error-message">
             {%- if form.errors contains 'email' -%}
               {{ form.errors.messages.email }}.
@@ -94,6 +122,7 @@
           id="RecipientForm-name-error-{{ section.id }}"
           class="form__message{% unless form.errors contains 'name' %} hidden{% endunless %}"
         >
+          {{- 'icon-error.svg' | inline_asset_content -}}
           <span class="error-message">
             {%- if form.errors contains 'name' -%}
               {{ form.errors.messages.name }}.
@@ -104,12 +133,8 @@
 
       <div class="recipient-fields__field">
         {%- assign max_chars_message = 200 -%}
-        {%- assign max_chars_message_rendered = 'recipient.form.max_characters'
-          | t: max_chars: max_chars_message
-        -%}
-        {%- assign message_label_rendered = 'recipient.form.message_label'
-          | t
-        -%}
+        {%- assign max_chars_message_rendered = 'recipient.form.max_characters' | t: max_chars: max_chars_message -%}
+        {%- assign message_label_rendered = 'recipient.form.message_label' | t -%}
         <div class="field">
           <textarea
             rows="10"
@@ -124,10 +149,7 @@
               aria-describedby="RecipientForm-message-error-{{ section.id }}"
             {% endif %}
           >{{ form.message }}</textarea>
-          <label
-            class="form__label field__label"
-            for="Recipient-message-{{ section.id }}"
-          >
+          <label class="form__label field__label" for="Recipient-message-{{ section.id }}">
             {{ message_label_rendered }}
           </label>
         </div>
@@ -140,6 +162,7 @@
           id="RecipientForm-message-error-{{ section.id }}"
           class="form__message{% unless form.errors contains 'message' %} hidden{% endunless %}"
         >
+          {{- 'icon-error.svg' | inline_asset_content -}}
           <span class="error-message">
             {%- if form.errors contains 'message' -%}
               {{ form.errors.messages.message }}.
@@ -164,10 +187,7 @@
               aria-describedby="RecipientForm-send_on-error-{{ section.id }}"
             {% endif %}
           >
-          <label
-            class="form__label field__label"
-            for="Recipient-send-on-{{ section.id }}"
-          >
+          <label class="form__label field__label" for="Recipient-send-on-{{ section.id }}">
             {{ 'recipient.form.send_on_label' | t }}
           </label>
         </div>
@@ -176,6 +196,7 @@
           id="RecipientForm-send_on-error-{{ section.id }}"
           class="form__message{% unless form.errors contains 'send_on' %} hidden{% endunless %}"
         >
+          {{- 'icon-error.svg' | inline_asset_content -}}
           <span class="error-message">
             {%- if form.errors contains 'send_on' -%}
               {{ form.errors.messages.send_on }}.

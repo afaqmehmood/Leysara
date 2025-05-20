@@ -1,11 +1,15 @@
-.main-page .page-title {
+.page-title {
   margin-top: 0;
 }
-.main-page .main-page-title {
-  margin: 0;
+
+.main-page-title {
+  margin-bottom: 3rem;
 }
-.main-page .page-header + .rte {
-  margin-top: 2.4rem;
+
+@media screen and (min-width: 750px) {
+  .main-page-title {
+    margin-bottom: 4rem;
+  }
 }
 
 .page-placeholder-wrapper {
