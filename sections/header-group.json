@@ -1,0 +1,80 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "t:sections.header.settings.header-group.label",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "disabled": true,
+      "settings": {
+        "height": 40,
+        "height_mobile": 40,
+        "color_scheme": "background-4",
+        "text": "<strong>100 Nachten proefslapen</strong>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "search_promo": {
+          "type": "search_promo",
+          "settings": {
+            "enable_search_promo": true,
+            "show_links_block": false,
+            "links_label": "Popular searches",
+            "link_label_1": "Some label",
+            "link_1": "",
+            "link_label_2": "Some label",
+            "link_2": "",
+            "link_label_3": "Some label",
+            "link_3": "",
+            "link_label_4": "",
+            "link_4": "",
+            "link_label_5": "",
+            "link_5": "",
+            "link_label_6": "",
+            "link_6": "",
+            "show_products_block": false,
+            "products_label": "",
+            "product_list": [],
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "search_promo"
+      ],
+      "settings": {
+        "header_type": "top-menu",
+        "button_type": "text_and_icon",
+        "logo_position": "center-logo",
+        "full_menu": false,
+        "background": "secondary",
+        "enable_border": false,
+        "logo": "shopify://shop_images/Leysara_colour_11_52c9bab9-2732-4fe4-a8f3-b5c690200dff.png",
+        "logo_width": 200,
+        "menu": "main-menu",
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "enable_social": false,
+        "sticky_header_type": "always",
+        "enable_search": false
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}

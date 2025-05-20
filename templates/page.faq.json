@@ -1,0 +1,110 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "heading_size": "h3",
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
+      }
+    },
+    "collapsible_content_mgRzWW": {
+      "type": "collapsible-content",
+      "blocks": {
+        "accordion_c687Hn": {
+          "type": "accordion",
+          "settings": {
+            "question": "What is Leysara?",
+            "answer": "Leysara is an online bedding store that specializes in high-quality, comfortable beds designed to enhance optimal sleep.",
+            "default_open": false
+          }
+        },
+        "accordion_hcBQPD": {
+          "type": "accordion",
+          "settings": {
+            "question": "What kind of beds does Leysara offer?",
+            "answer": "Leysara offers beds made with luxury materials and craftsmanship, focusing on both comfort and style, making them a great addition to any interior.",
+            "default_open": false
+          }
+        },
+        "accordion_9tFtiM": {
+          "type": "accordion",
+          "settings": {
+            "question": "What makes Leysara different from other bedding stores?",
+            "answer": "Leysara stands out due to its commitment to quality, luxury materials, craftsmanship, and personalized customer service, ensuring a tailored sleep solution.",
+            "default_open": false
+          }
+        },
+        "accordion_qC3ARd": {
+          "type": "accordion",
+          "settings": {
+            "question": "Does Leysara prioritize comfort or style in its beds?",
+            "answer": "Leysara prioritizes both comfort and style, providing beds that offer an excellent sleep experience while enhancing the aesthetics of your home.",
+            "default_open": false
+          }
+        },
+        "accordion_9GVdRj": {
+          "type": "accordion",
+          "settings": {
+            "question": "Why should I choose Leysara for my bedding needs?",
+            "answer": "You should choose Leysara for its dedication to offering high-quality, comfortable beds paired with excellent customer service, ensuring a personalized and satisfying sleep experience.",
+            "default_open": false
+          }
+        },
+        "accordion_9CAwJD": {
+          "type": "accordion",
+          "settings": {
+            "question": "Can I get a personalized sleep solution at Leysara?",
+            "answer": "Yes, Leysara is dedicated to providing personalized sleep solutions by offering a variety of high-quality beds tailored to your comfort and style preferences.",
+            "default_open": false
+          }
+        },
+        "accordion_6TNXf4": {
+          "type": "accordion",
+          "settings": {
+            "question": "What kind of customer service does Leysara provide?",
+            "answer": "Leysara offers excellent customer service, ensuring a smooth and personalized shopping experience, from selecting the perfect bed to post-purchase support.",
+            "default_open": false
+          }
+        }
+      },
+      "block_order": [
+        "accordion_c687Hn",
+        "accordion_hcBQPD",
+        "accordion_9tFtiM",
+        "accordion_qC3ARd",
+        "accordion_9GVdRj",
+        "accordion_9CAwJD",
+        "accordion_6TNXf4"
+      ],
+      "settings": {
+        "section_layout": "row",
+        "icon_style": "secondary",
+        "section_heading": "Our Faqs",
+        "section_heading_size": "h2",
+        "section_subheading": "",
+        "dot": false,
+        "section_button_label": "",
+        "section_button_link": "",
+        "button_dot": true,
+        "section_button_style": "primary",
+        "margin_top": "s",
+        "margin_bottom": "s"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "collapsible_content_mgRzWW"
+  ]
+}

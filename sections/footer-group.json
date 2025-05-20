@@ -1,0 +1,74 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "t:sections.footer.settings.footer-group.label",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "contacts_DwwK6K": {
+          "type": "contacts",
+          "settings": {
+            "address": "Markerkant 10 78, Almere",
+            "phone": "1-212-123 45 67",
+            "email": "klantenservice@leysara.nl",
+            "working_hours": "09:00-21:00"
+          }
+        },
+        "footer-1": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Ons beleid",
+            "menu": "our-policies",
+            "default_open": false
+          }
+        },
+        "footer-2": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Helpcentrum",
+            "menu": "help-center",
+            "default_open": false
+          }
+        },
+        "footer-3": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Informatie",
+            "menu": "information",
+            "default_open": false
+          }
+        }
+      },
+      "block_order": [
+        "contacts_DwwK6K",
+        "footer-1",
+        "footer-2",
+        "footer-3"
+      ],
+      "settings": {
+        "color_scheme": "background-2",
+        "icon_style": "secondary",
+        "show_social": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "payment_enable": true,
+        "show_policy": false,
+        "enable_copyright_date": true,
+        "enable_copyright_shopname": true,
+        "enable_follow_on_shop": false
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

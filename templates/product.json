@@ -1,0 +1,420 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "{{ product.vendor }}"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h2"
+          }
+        },
+        "judge_me_reviews_preview_badge_A8MBh6": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_tax_info": false,
+            "show_shipping": false
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "dropdown"
+          }
+        },
+        "inventory": {
+          "type": "inventory",
+          "settings": {
+            "show_inventory_quantity": true
+          }
+        },
+        "pickup_availability": {
+          "type": "pickup_availability",
+          "disabled": true,
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_quantity": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "custom_liquid_Azq3T8": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<img src=\"https://cdn.shopify.com/s/files/1/0906/6086/4385/files/safe_checkout.png\" style=\"width:100%;\"></img>"
+          }
+        },
+        "countdown_kxAkQe": {
+          "type": "countdown",
+          "settings": {
+            "color_scheme": "background-1",
+            "date_picker": "2025-05-30",
+            "time_picker": "00:00",
+            "countdown_block_font": "h2",
+            "completed_countdown": "show_text",
+            "countdown_heading": "Wees snel",
+            "text": "Koop nu!"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "description": ""
+          }
+        },
+        "text_with_icon": {
+          "type": "text_with_icon",
+          "settings": {
+            "icon": "none",
+            "text_with_icon_text": "Expected Delivery",
+            "icon_second": "none",
+            "text_with_icon_text-second": "Order today and get delivered in 7 - 14 working days."
+          }
+        },
+        "popup": {
+          "type": "popup",
+          "settings": {
+            "label": "Shipping information",
+            "page": "",
+            "heading": "Free delivery",
+            "text": "<p>The box spring is shipped free of charge within the Netherlands. The box spring is delivered to your bedroom and set up for you. Your box spring bed base and your box spring mattress are sometimes delivered in two different shipments. Our shipping partner will contact you to make a delivery appointment at a time that suits you. For Wadden Islands: assembly service cannot be offered.<strong>Easy returns process</strong>Do you still want to return the bed? Please contact our customer service. VOS Home Deliveries will then contact you for a collection appointment. This is of course also completely free!<br/><br/></p>"
+          }
+        },
+        "popup_mXCi7T": {
+          "type": "popup",
+          "settings": {
+            "label": "Product Manual",
+            "page": "",
+            "heading": "",
+            "text": "<p>For bed sheets, follow the care instructions provided on the label. For furniture, use a dry cloth for dusting and avoid using harsh chemicals.</p>"
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "show_share_facebook": true,
+            "show_share_twitter": true,
+            "show_share_telegram": true,
+            "show_share_reddit": true,
+            "show_share_copy": true
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "judge_me_reviews_preview_badge_A8MBh6",
+        "price",
+        "variant_picker",
+        "inventory",
+        "pickup_availability",
+        "buy_buttons",
+        "custom_liquid_Azq3T8",
+        "countdown_kxAkQe",
+        "description",
+        "text_with_icon",
+        "popup",
+        "popup_mXCi7T",
+        "share"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "header_overlay": false,
+        "show_navigation": false,
+        "section_layout": "container",
+        "desktop_alignment": "left",
+        "mobile_alignment": "before",
+        "gallery_type": "slideshow",
+        "image_fit": "contain",
+        "image_fit_modal": "contain",
+        "is_autoplay": true,
+        "is_hover_stop_autoplay": false,
+        "show_arrows": false,
+        "slideshow_speed": 1.1,
+        "slideshow_delay": 3,
+        "margin_top": "s",
+        "margin_bottom": "s"
+      }
+    },
+    "image_with_text_VaE6eq": {
+      "type": "image-with-text",
+      "settings": {
+        "color_scheme": "",
+        "image_position": "image_left",
+        "content_alignment": "left",
+        "image": "shopify://shop_images/ezgif-4b6457101dd79c.gif",
+        "image_size": "adapt",
+        "subheading": "",
+        "dot": true,
+        "heading": "Pocketveringmatras",
+        "heading_size": "h1",
+        "text": "<p>Gerichte ondersteuning, elke nacht opnieuw</p><p>Ons Comfort Deluxe pocketveringmatras is ontworpen voor wie op zoek is naar rust én goede ondersteuning. De veringen passen zich individueel aan je lichaam aan, waardoor drukpunten bij schouders, heupen en onderrug effectief worden verlicht. Ideaal voor elke slaaphouding en perfect als je houdt van een matras dat met je meebeweegt.</p><p></p>",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "button_dot": true,
+        "margin_top": "s",
+        "margin_bottom": "s"
+      }
+    },
+    "174483196032a2f724": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_MLzEqM": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_MLzEqM"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "columns_per_row": 3,
+        "products_limit": 3,
+        "autoplay": false,
+        "stop_autoplay": true,
+        "show_arrows": true,
+        "slideshow_speed": 1.1,
+        "slideshow_delay": 3,
+        "section_heading": "Related Products",
+        "section_heading_size": "h3",
+        "subheading": "",
+        "dot": true,
+        "line": true,
+        "image_ratio": "square",
+        "image_fit": "cover",
+        "show_collection_name": false,
+        "show_secondary_image": true,
+        "show_sku": false,
+        "show_vendor": false,
+        "show_desc": false,
+        "margin_top": "m",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "product-complementary": {
+      "type": "product-complementary",
+      "disabled": true,
+      "settings": {
+        "columns_per_row": 3,
+        "products_limit": 3,
+        "autoplay": false,
+        "stop_autoplay": true,
+        "show_arrows": true,
+        "slideshow_speed": 1.1,
+        "slideshow_delay": 3,
+        "section_heading": "Complementary Products",
+        "section_heading_size": "h3",
+        "subheading": "Some Subheading",
+        "dot": true,
+        "line": true,
+        "image_ratio": "square",
+        "image_fit": "cover",
+        "show_collection_name": false,
+        "show_secondary_image": true,
+        "show_sku": false,
+        "show_vendor": false,
+        "show_desc": false,
+        "margin_top": "m",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "multicolumn_VL9xEF": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_DfxF3X": {
+          "type": "column",
+          "settings": {
+            "image_size": "16/9",
+            "icon": "none",
+            "heading": "Delivery time as promised",
+            "text": "Whether you live on the ground floor or on the fourth floor, we will deliver your bed on the agreed date as stated on our website. No surprises!",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        },
+        "column_tHcRyH": {
+          "type": "column",
+          "settings": {
+            "image_size": "16/9",
+            "icon": "none",
+            "heading": "100 nights of trial sleep",
+            "text": "Is your bed like a cloud, but not quite your thing? Try your new bed for 100 nights and if it's not perfect, we'll take it back without any hassle.",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        },
+        "column_nQeniw": {
+          "type": "column",
+          "settings": {
+            "image_size": "16/9",
+            "icon": "none",
+            "heading": "5-year warranty",
+            "text": "Our beds are built to last, so you can sleep worry-free for years to come. We even offer a 5-year warranty, because we trust the quality we deliver.",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        }
+      },
+      "block_order": [
+        "column_DfxF3X",
+        "column_tHcRyH",
+        "column_nQeniw"
+      ],
+      "settings": {
+        "section_heading": "",
+        "section_heading_size": "h1",
+        "subheading": "",
+        "dot": true,
+        "columns_per_row": 3,
+        "content_alignment": "left",
+        "swipe_on_mobile": true,
+        "card_heading_size": "h4",
+        "margin_top": "m",
+        "margin_bottom": "m"
+      }
+    },
+    "collapsible_content_MJmpwz": {
+      "type": "collapsible-content",
+      "blocks": {
+        "accordion_yc8aXH": {
+          "type": "accordion",
+          "settings": {
+            "question": "What materials are your furniture and bed sheets made of ?",
+            "answer": "Our furniture is crafted from high-quality wood, metal, and upholstery, ensuring durability and style. Our bed sheets are made from premium fabrics like cotton, linen, and silk for maximum comfort.",
+            "default_open": false
+          }
+        },
+        "accordion_jMtQgC": {
+          "type": "accordion",
+          "settings": {
+            "question": "Do you offer custom furniture or bed sheets ?",
+            "answer": "Yes, we provide customization options for furniture design and bed sheet sizes to meet your unique preferences.",
+            "default_open": false
+          }
+        },
+        "accordion_WQ7DB4": {
+          "type": "accordion",
+          "settings": {
+            "question": "What is your return policy ?",
+            "answer": "We offer a hassle-free return policy. You can return items within 30 days of delivery, provided they are unused and in their original packaging.",
+            "default_open": false
+          }
+        },
+        "accordion_X4JqpG": {
+          "type": "accordion",
+          "settings": {
+            "question": "Do you provide assembly services for furniture ?",
+            "answer": "Yes, we offer free or affordable assembly services with select furniture items. Please check the product page for details.",
+            "default_open": false
+          }
+        },
+        "accordion_Gx4fk9": {
+          "type": "accordion",
+          "settings": {
+            "question": "How should I care for your bed sheets and furniture ?",
+            "answer": "For bed sheets, follow the care instructions provided on the label. For furniture, use a dry cloth for dusting and avoid using harsh chemicals.",
+            "default_open": false
+          }
+        },
+        "accordion_BXyNnK": {
+          "type": "accordion",
+          "settings": {
+            "question": "Do you deliver to my location, and what are the delivery charges ?",
+            "answer": "We deliver across [insert locations/regions]. Delivery is free for orders above [insert amount], and a nominal fee is charged for smaller orders",
+            "default_open": false
+          }
+        },
+        "accordion_weVMgY": {
+          "type": "accordion",
+          "settings": {
+            "question": "Can I track my order ?What payment methods do you accept ?",
+            "answer": "Yes, once your order is shipped, we provide a tracking number via email or SMS. You can use it to monitor your shipment’s progress.",
+            "default_open": false
+          }
+        },
+        "accordion_Th3DPq": {
+          "type": "accordion",
+          "settings": {
+            "question": "What payment methods do you accept ?",
+            "answer": "We accept multiple payment options, including credit/debit cards, net banking, UPI, and cash on delivery for select regions.",
+            "default_open": false
+          }
+        }
+      },
+      "block_order": [
+        "accordion_yc8aXH",
+        "accordion_jMtQgC",
+        "accordion_WQ7DB4",
+        "accordion_X4JqpG",
+        "accordion_Gx4fk9",
+        "accordion_BXyNnK",
+        "accordion_weVMgY",
+        "accordion_Th3DPq"
+      ],
+      "settings": {
+        "section_layout": "column",
+        "icon_style": "secondary",
+        "section_heading": "Our Faqs",
+        "section_heading_size": "h2",
+        "section_subheading": "",
+        "dot": false,
+        "section_button_label": "",
+        "section_button_link": "",
+        "button_dot": true,
+        "section_button_style": "primary",
+        "margin_top": "s",
+        "margin_bottom": "s"
+      }
+    }
+  },
+  "order": [
+    "main-product",
+    "image_with_text_VaE6eq",
+    "174483196032a2f724",
+    "product-recommendations",
+    "product-complementary",
+    "multicolumn_VL9xEF",
+    "collapsible_content_MJmpwz"
+  ]
+}
