@@ -4,26 +4,22 @@
 
 .list-menu--disclosure {
   position: absolute;
-  left: auto;
-  min-width: max-content;
-  max-width: 30rem;
-  background-color: rgb(var(--color-background-secondary));
-}
-
-.list-menu--disclosure .list-menu--disclosure {
-  left: 100%;
-}
-
-.list-menu--disclosure .list-menu--disclosure:before {
-  content: none;
+  min-width: 100%;
+  width: 20rem;
+  border: 1px solid rgba(var(--color-foreground), 0.2);
 }
 
 .list-menu--disclosure:focus {
   outline: none;
 }
 
-.footer .list-menu__item {
-  transition: color var(--duration-default), text-decoration var(--duration-default);
+.list-menu__item--active {
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+.list-menu__item--active:hover {
+  text-decoration-thickness: 0.2rem;
 }
 
 .list-menu--disclosure.localization-selector {

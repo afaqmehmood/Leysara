@@ -1,372 +1,277 @@
-// prettier-ignore
 class PredictiveSearch extends SearchForm {
-	constructor() {
-		super();
-		this.cachedResults = {};
-		this.predictiveSearchResults = this.querySelector("[data-predictive-search]");
-		this.allPredictiveSearchInstances =
-			document.querySelectorAll("predictive-search");
-		this.isOpen = false;
-		this.abortController = new AbortController();
-		this.searchTerm = "";
-		this.body = document.querySelector("body");
-		this.headerBottom = document.querySelector(".header__bottom");
-		this.promoModal = document.querySelector(".search__modal");
-		this.collectionList = document.querySelector(".template-404__collections");
-		this.headerInput = document.querySelector(".header__search .search__input");
-		this.setupEventListeners();
-	}
+  constructor() {
+    super();
+    this.cachedResults = {};
+    this.predictiveSearchResults = this.querySelector('[data-predictive-search]');
+    this.allPredictiveSearchInstances = document.querySelectorAll('predictive-search');
+    this.isOpen = false;
+    this.abortController = new AbortController();
+    this.searchTerm = '';
 
-	setupEventListeners() {
-		this.input.form.addEventListener("submit", this.onFormSubmit.bind(this));
-		this.input.addEventListener("focus", this.onFocus.bind(this));
-		this.addEventListener("focusout", this.onFocusOut.bind(this));
-		this.addEventListener("keyup", this.onKeyup.bind(this));
-	}
+    this.setupEventListeners();
+  }
 
-	getQuery() {
-		return this.input.value.trim();
-	}
+  setupEventListeners() {
+    this.input.form.addEventListener('submit', this.onFormSubmit.bind(this));
 
-	onChange() {
-		const newSearchTerm = this.getQuery();
-		if (!this.searchTerm || !newSearchTerm.startsWith(this.searchTerm)) {
-			// Remove the results when they are no longer relevant for the new search term
-			// so they don't show up when the dropdown opens again
-			this.querySelector("#predictive-search-results-groups-wrapper")?.remove();
-		}
+    this.input.addEventListener('focus', this.onFocus.bind(this));
+    this.addEventListener('focusout', this.onFocusOut.bind(this));
+    this.addEventListener('keyup', this.onKeyup.bind(this));
+    this.addEventListener('keydown', this.onKeydown.bind(this));
+  }
 
-		// Update the term asap, don't wait for the predictive search query to finish loading
-		this.updateSearchForTerm(this.searchTerm, newSearchTerm);
+  getQuery() {
+    return this.input.value.trim();
+  }
 
-		this.searchTerm = newSearchTerm;
+  onChange() {
+    super.onChange();
+    const newSearchTerm = this.getQuery();
+    if (!this.searchTerm || !newSearchTerm.startsWith(this.searchTerm)) {
+      // Remove the results when they are no longer relevant for the new search term
+      // so they don't show up when the dropdown opens again
+      this.querySelector('#predictive-search-results-groups-wrapper')?.remove();
+    }
 
-		if (!this.searchTerm.length) {
-			this.close(true);
-			return;
-		}
+    // Update the term asap, don't wait for the predictive search query to finish loading
+    this.updateSearchForTerm(this.searchTerm, newSearchTerm);
 
-		this.getSearchResults(this.searchTerm);
-		if (this.getQuery().length) {
-			this.hidePromoBlock();
-		} else {
-			this.showPromoBlock();
-		}
-	}
+    this.searchTerm = newSearchTerm;
 
-	onFormSubmit(event) {
-		if (
-			!this.getQuery().length ||
-			this.querySelector('[aria-selected="true"] a') ||
-			event.submitter.classList.contains("card__link")
-		)
-			event.preventDefault();
-	}
+    if (!this.searchTerm.length) {
+      this.close(true);
+      return;
+    }
 
-	onFormReset(event) {
-		super.onFormReset(event);
-		if (super.shouldResetForm()) {
-			this.searchTerm = "";
-			this.abortController.abort();
-			this.abortController = new AbortController();
-			this.closeResults(true);
-		}
-	}
+    this.getSearchResults(this.searchTerm);
+  }
 
-	onFocus() {
-		const currentSearchTerm = this.getQuery();
-		if (this.classList.contains("search-modal__form")) {
-			if (this.headerBottom) {
-				this.headerBottom.classList.add("header__bottom--visible");
-			}
-			if (this.promoModal) {
-				this.promoModal.classList.remove("search__modal--hidden");
-			}
-			if (this.collectionList) {
-				this.collectionList.classList.remove("hidden");
-			}
-		}
+  onFormSubmit(event) {
+    if (!this.getQuery().length || this.querySelector('[aria-selected="true"] a')) event.preventDefault();
+  }
 
-		if (!currentSearchTerm.length) {
-			return;
-		}
+  onFormReset(event) {
+    super.onFormReset(event);
+    if (super.shouldResetForm()) {
+      this.searchTerm = '';
+      this.abortController.abort();
+      this.abortController = new AbortController();
+      this.closeResults(true);
+    }
+  }
 
-		if (this.searchTerm !== currentSearchTerm) {
-			// Search term was changed from other search input, treat it as a user change
-			this.onChange();
-		} else if (this.getAttribute("results") === "true") {
-			this.open();
-			if (this.promoModal) {
-				this.promoModal.classList.add("search__modal--hidden");
-			}
-			if (this.collectionList) {
-				this.collectionList.classList.add("hidden");
-			}
-		} else {
-			this.getSearchResults(this.searchTerm);
-		}
-	}
+  onFocus() {
+    const currentSearchTerm = this.getQuery();
 
-	onFocusOut() {
-		if (this.classList.contains("search-modal__form")) {
-			if (this.headerBottom) {
-				this.headerBottom.classList.remove("header__bottom--visible");
-			}
-		}
-		if (!this.classList.contains("search-modal__form")) {
-			setTimeout(() => {
-				if (!this.contains(document.activeElement)) this.close();
-			});
-		}
-	}
+    if (!currentSearchTerm.length) return;
 
-	onBlur() {
-		this.headerInput.blur();
-	}
+    if (this.searchTerm !== currentSearchTerm) {
+      // Search term was changed from other search input, treat it as a user change
+      this.onChange();
+    } else if (this.getAttribute('results') === 'true') {
+      this.open();
+    } else {
+      this.getSearchResults(this.searchTerm);
+    }
+  }
 
-	onKeyup(event) {
-		if (!this.getQuery().length) this.close(true);
-		event.preventDefault();
+  onFocusOut() {
+    setTimeout(() => {
+      if (!this.contains(document.activeElement)) this.close();
+    });
+  }
 
-		switch (event.code) {
-			case "Enter":
-				event.preventDefault();
-				this.selectOption();
-				break;
-			case "Escape":
-				this.close(true);
-				this.closeResults(clearSearchTerm);
-				if (this.getQuery().length) {
-					this.hidePromoBlock();
-				} else {
-					this.showPromoBlock();
-				}
-				break;
-		}
-	}
+  onKeyup(event) {
+    if (!this.getQuery().length) this.close(true);
+    event.preventDefault();
 
-	updateSearchForTerm(previousTerm, newTerm) {
-		const searchForTextElement = this.querySelector(
-			"[data-predictive-search-search-for-text]",
-		);
-		const currentButtonText = searchForTextElement?.innerText;
-		if (currentButtonText) {
-			if (
-				currentButtonText.matchAll(new RegExp(previousTerm, "g")).length > 1
-			) {
-				// The new term matches part of the button text and not just the search term, do not replace to avoid mistakes
-				return;
-			}
-			const newButtonText = currentButtonText.replace(previousTerm, newTerm);
-			searchForTextElement.innerText = newButtonText;
-		}
-		if (this.getQuery().length) {
-			this.hidePromoBlock();
-		} else {
-			this.showPromoBlock();
-		}
-	}
+    switch (event.code) {
+      case 'ArrowUp':
+        this.switchOption('up');
+        break;
+      case 'ArrowDown':
+        this.switchOption('down');
+        break;
+      case 'Enter':
+        this.selectOption();
+        break;
+    }
+  }
 
-	selectOption() {
-		const selectedOption = this.querySelector(
-			'[aria-selected="true"] a, button[aria-selected="true"]',
-		);
+  onKeydown(event) {
+    // Prevent the cursor from moving in the input when using the up and down arrow keys
+    if (event.code === 'ArrowUp' || event.code === 'ArrowDown') {
+      event.preventDefault();
+    }
+  }
 
-		if (selectedOption) selectedOption.click();
-	}
+  updateSearchForTerm(previousTerm, newTerm) {
+    const searchForTextElement = this.querySelector('[data-predictive-search-search-for-text]');
+    const currentButtonText = searchForTextElement?.innerText;
+    if (currentButtonText) {
+      if (currentButtonText.match(new RegExp(previousTerm, 'g')).length > 1) {
+        // The new term matches part of the button text and not just the search term, do not replace to avoid mistakes
+        return;
+      }
+      const newButtonText = currentButtonText.replace(previousTerm, newTerm);
+      searchForTextElement.innerText = newButtonText;
+    }
+  }
 
-	getSearchResults(searchTerm) {
-		const queryKey = searchTerm.replace(" ", "-").toLowerCase();
-		this.setLiveRegionLoadingState();
+  switchOption(direction) {
+    if (!this.getAttribute('open')) return;
 
-		if (this.cachedResults[queryKey]) {
-			this.renderSearchResults(this.cachedResults[queryKey]);
-			this.clickSearchTabs();
-			return;
-		}
+    const moveUp = direction === 'up';
+    const selectedElement = this.querySelector('[aria-selected="true"]');
 
-		if (this.promoModal && this.classList.contains("search-modal__form")) {
-			this.promoModal.classList.add("search__modal--hidden");
-		}
+    // Filter out hidden elements (duplicated page and article resources) thanks
+    // to this https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetParent
+    const allVisibleElements = Array.from(this.querySelectorAll('li, button.predictive-search__item')).filter(
+      (element) => element.offsetParent !== null
+    );
+    let activeElementIndex = 0;
 
-		if (this.collectionList) {
-			this.collectionList.classList.add("hidden");
-		}
+    if (moveUp && !selectedElement) return;
 
-		fetch(
-			`${routes.predictive_search_url}?q=${encodeURIComponent(searchTerm)}&section_id=predictive-search`,
-			{ signal: this.abortController.signal },
-		)
-			.then((response) => {
-				if (!response.ok) {
-					var error = new Error(response.status);
-					this.close();
-					throw error;
-				}
-				return response.text();
-			})
-			.then((text) => {
-				const resultsMarkup = new DOMParser()
-					.parseFromString(text, "text/html")
-					.querySelector("#shopify-section-predictive-search").innerHTML;
-				// Save bandwidth keeping the cache in all instances synced
-				this.allPredictiveSearchInstances.forEach(
-					(predictiveSearchInstance) => {
-						predictiveSearchInstance.cachedResults[queryKey] = resultsMarkup;
-					},
-				);
-				this.renderSearchResults(resultsMarkup);
-				this.clickSearchTabs();
-				try {
-					colorSwatches();
-				} catch (err) {}
-			})
-			.catch((error) => {
-				if (error?.code === 20) {
-					// Code 20 means the call was aborted
-					return;
-				}
-				this.close();
-				throw error;
-			});
+    let selectedElementIndex = -1;
+    let i = 0;
 
-		if (this.getQuery().length) {
-			this.hidePromoBlock();
-		} else {
-			this.showPromoBlock();
-		}
-	}
+    while (selectedElementIndex === -1 && i <= allVisibleElements.length) {
+      if (allVisibleElements[i] === selectedElement) {
+        selectedElementIndex = i;
+      }
+      i++;
+    }
 
-	setLiveRegionLoadingState() {
-		this.statusElement =
-			this.statusElement || this.querySelector(".predictive-search-status");
-		this.loadingText =
-			this.loadingText || this.getAttribute("data-loading-text");
+    this.statusElement.textContent = '';
 
-		this.setLiveRegionText(this.loadingText);
-		this.setAttribute("loading", true);
-	}
+    if (!moveUp && selectedElement) {
+      activeElementIndex = selectedElementIndex === allVisibleElements.length - 1 ? 0 : selectedElementIndex + 1;
+    } else if (moveUp) {
+      activeElementIndex = selectedElementIndex === 0 ? allVisibleElements.length - 1 : selectedElementIndex - 1;
+    }
 
-	setLiveRegionText(statusText) {
-		this.statusElement.setAttribute("aria-hidden", "false");
-		this.statusElement.textContent = statusText;
+    if (activeElementIndex === selectedElementIndex) return;
 
-		setTimeout(() => {
-			this.statusElement.setAttribute("aria-hidden", "true");
-		}, 1000);
-	}
+    const activeElement = allVisibleElements[activeElementIndex];
 
-	renderSearchResults(resultsMarkup) {
-		this.predictiveSearchResults.innerHTML = resultsMarkup;
-		this.setAttribute("results", true);
+    activeElement.setAttribute('aria-selected', true);
+    if (selectedElement) selectedElement.setAttribute('aria-selected', false);
 
-		this.setLiveRegionResults();
-		this.open();
-		if (this.promoModal && this.classList.contains("search-modal__form")) {
-			this.promoModal.classList.add("search__modal--hidden");
-		}
-		if (this.collectionList) {
-			this.collectionList.classList.add("hidden");
-		}
-	}
+    this.input.setAttribute('aria-activedescendant', activeElement.id);
+  }
 
-	clickSearchTabs() {
-		const results = this.querySelectorAll(".predictive-search__results-list");
-		if (results.length != 0) {
-			results[0].classList.add("active");
-			this.querySelector(".predictive-search__result-tab").classList.add(
-				"active",
-			);
-			this.querySelectorAll(".predictive-search__result-tab").forEach((tab) => {
-				tab.addEventListener("click", (event) => {
-					event.preventDefault();
-					const typeTarget = tab.dataset.typeTarget;
-					this.querySelectorAll(".predictive-search__result-tab").forEach(
-						(element) => {
-							element.classList.remove("active");
-						},
-					);
-					tab.classList.add("active");
+  selectOption() {
+    const selectedOption = this.querySelector('[aria-selected="true"] a, button[aria-selected="true"]');
 
-					results.forEach((element) => {
-						let resultsType = element.dataset.type;
-						if (resultsType == typeTarget) {
-							element.classList.add("active");
-						} else {
-							element.classList.remove("active");
-						}
-					});
-				});
-			});
-		}
-	}
+    if (selectedOption) selectedOption.click();
+  }
 
-	hidePromoBlock() {
-		if (this.classList.contains("search-modal__form")) {
-			if (this.promoModal) {
-				this.promoModal.classList.add("search__modal--hidden");
-			}
-			if (this.collectionList) {
-				this.collectionList.classList.add("hidden");
-			}
-		}
-	}
+  getSearchResults(searchTerm) {
+    const queryKey = searchTerm.replace(' ', '-').toLowerCase();
+    this.setLiveRegionLoadingState();
 
-	showPromoBlock() {
-		if (this.classList.contains("search-modal__form")) {
-			if (this.promoModal) {
-				this.promoModal.classList.remove("search__modal--hidden");
-			}
-			if (this.collectionList) {
-				this.collectionList.classList.remove("hidden");
-			}
-		}
-	}
+    if (this.cachedResults[queryKey]) {
+      this.renderSearchResults(this.cachedResults[queryKey]);
+      return;
+    }
 
-	setLiveRegionResults() {
-		this.removeAttribute("loading");
-		this.setLiveRegionText(
-			this.querySelector("[data-predictive-search-live-region-count-value]")
-				.textContent,
-		);
-	}
+    fetch(`${routes.predictive_search_url}?q=${encodeURIComponent(searchTerm)}&section_id=predictive-search`, {
+      signal: this.abortController.signal,
+    })
+      .then((response) => {
+        if (!response.ok) {
+          var error = new Error(response.status);
+          this.close();
+          throw error;
+        }
 
-	open() {
-		this.setAttribute("open", true);
-		this.input.setAttribute("aria-expanded", true);
-		this.isOpen = true;
-		if (this.getQuery().length) {
-			this.hidePromoBlock();
-		} else {
-			this.showPromoBlock();
-		}
-	}
+        return response.text();
+      })
+      .then((text) => {
+        const resultsMarkup = new DOMParser()
+          .parseFromString(text, 'text/html')
+          .querySelector('#shopify-section-predictive-search').innerHTML;
+        // Save bandwidth keeping the cache in all instances synced
+        this.allPredictiveSearchInstances.forEach((predictiveSearchInstance) => {
+          predictiveSearchInstance.cachedResults[queryKey] = resultsMarkup;
+        });
+        this.renderSearchResults(resultsMarkup);
+      })
+      .catch((error) => {
+        if (error?.code === 20) {
+          // Code 20 means the call was aborted
+          return;
+        }
+        this.close();
+        throw error;
+      });
+  }
 
-	close(clearSearchTerm = false) {
-		this.closeResults(clearSearchTerm);
-		this.isOpen = false;
-	}
+  setLiveRegionLoadingState() {
+    this.statusElement = this.statusElement || this.querySelector('.predictive-search-status');
+    this.loadingText = this.loadingText || this.getAttribute('data-loading-text');
 
-	closeResults(clearSearchTerm = false) {
-		if (clearSearchTerm) {
-			this.input.value = "";
-			this.removeAttribute("results");
-		}
-		const selected = this.querySelector('[aria-selected="true"]');
+    this.setLiveRegionText(this.loadingText);
+    this.setAttribute('loading', true);
+  }
 
-		if (selected) selected.setAttribute("aria-selected", false);
+  setLiveRegionText(statusText) {
+    this.statusElement.setAttribute('aria-hidden', 'false');
+    this.statusElement.textContent = statusText;
 
-		this.input.setAttribute("aria-activedescendant", "");
-		this.removeAttribute("loading");
-		this.removeAttribute("open");
-		this.input.setAttribute("aria-expanded", false);
-		this.predictiveSearchResults.removeAttribute("style");
-		if (this.getQuery().length) {
-			this.hidePromoBlock();
-		} else {
-			this.showPromoBlock();
-		}
-	}
+    setTimeout(() => {
+      this.statusElement.setAttribute('aria-hidden', 'true');
+    }, 1000);
+  }
+
+  renderSearchResults(resultsMarkup) {
+    this.predictiveSearchResults.innerHTML = resultsMarkup;
+    this.setAttribute('results', true);
+
+    this.setLiveRegionResults();
+    this.open();
+  }
+
+  setLiveRegionResults() {
+    this.removeAttribute('loading');
+    this.setLiveRegionText(this.querySelector('[data-predictive-search-live-region-count-value]').textContent);
+  }
+
+  getResultsMaxHeight() {
+    this.resultsMaxHeight =
+      window.innerHeight - document.querySelector('.section-header')?.getBoundingClientRect().bottom;
+    return this.resultsMaxHeight;
+  }
+
+  open() {
+    this.predictiveSearchResults.style.maxHeight = this.resultsMaxHeight || `${this.getResultsMaxHeight()}px`;
+    this.setAttribute('open', true);
+    this.input.setAttribute('aria-expanded', true);
+    this.isOpen = true;
+  }
+
+  close(clearSearchTerm = false) {
+    this.closeResults(clearSearchTerm);
+    this.isOpen = false;
+  }
+
+  closeResults(clearSearchTerm = false) {
+    if (clearSearchTerm) {
+      this.input.value = '';
+      this.removeAttribute('results');
+    }
+    const selected = this.querySelector('[aria-selected="true"]');
+
+    if (selected) selected.setAttribute('aria-selected', false);
+
+    this.input.setAttribute('aria-activedescendant', '');
+    this.removeAttribute('loading');
+    this.removeAttribute('open');
+    this.input.setAttribute('aria-expanded', false);
+    this.resultsMaxHeight = false;
+    this.predictiveSearchResults.removeAttribute('style');
+  }
 }
 
-customElements.define("predictive-search", PredictiveSearch);
+customElements.define('predictive-search', PredictiveSearch);
